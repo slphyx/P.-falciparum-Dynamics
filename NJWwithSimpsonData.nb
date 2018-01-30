@@ -1,0 +1,922 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     42474,        913]
+NotebookOptionsPosition[     42070,        896]
+NotebookOutlinePosition[     42494,        912]
+CellTagsIndexPosition[     42451,        909]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"dat", "=", 
+     RowBox[{"Chop", "@", 
+      RowBox[{"NJW", "[", 
+       RowBox[{
+        RowBox[{"10", "^", "initN"}], ",", "48", ",", "mu", ",", "sigma", ",",
+         "pmr", ",", "192"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"total", "=", 
+     RowBox[{"Log10", "/@", 
+      RowBox[{"Total", "/@", "dat"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"total4plot", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"i", "/", "24."}], ",", 
+         RowBox[{"total", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "@", "total"}]}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"observed", "=", 
+     RowBox[{"Log10", "/@", 
+      RowBox[{"Total", "/@", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ";;", "maxobservedage"}], "]"}], "]"}], "&"}], "/@", 
+         "dat"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"observed4plot", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"i", "/", "24."}], ",", 
+         RowBox[{"observed", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "@", "observed"}]}], "}"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"totalevery24", "=", 
+     RowBox[{"Take", "[", 
+      RowBox[{"total4plot", ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"Length", "@", "total4plot"}], ",", "24"}], "}"}]}], "]"}]}],
+     ";", "\[IndentingNewLine]", 
+    RowBox[{"observed24", "=", 
+     RowBox[{"Take", "[", 
+      RowBox[{"observed4plot", ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"Length", "@", "observed4plot"}], ",", "24"}], "}"}]}], 
+      "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"rmsd", "=", 
+     RowBox[{"RootMeanSquare", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Drop", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"{", "8", "}"}]}], "]"}], "&"}], "@", 
+        RowBox[{"observed24", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "-", 
+       RowBox[{"dataset", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", "2"}], "]"}], "]"}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"Which", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"obs", "\[Equal]", "False"}], "&&", 
+       RowBox[{"every", "\[Equal]", "1"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ListPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"dataset", ",", "total4plot"}], "}"}], ",", 
+        RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<time (day)\>\"", ",", 
+           "\"\<log10 number of parasites (/\[Mu]L)\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "8"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "6"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "480"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Dashed"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"\"\<RMSD: \>\"", "<>", 
+          RowBox[{"ToString", "@", "rmsd"}]}]}], ",", 
+        RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+        RowBox[{"GridLinesStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"LightGray", ",", "Dashed"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], "]"}]}], 
+        ",", 
+        RowBox[{"PlotMarkers", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<\[CircleTimes]\>\"", ",", "12"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<\>\"", ",", "10"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"Placed", "[", 
+          RowBox[{
+           RowBox[{"LineLegend", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\"\<data\>\"", ",", "\"\<model\>\""}], "}"}], ",", 
+             RowBox[{"LegendFunction", "\[Rule]", "Framed"}]}], "]"}], ",", 
+           "Bottom"}], "]"}]}]}], "]"}], "\[IndentingNewLine]", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"obs", "\[Equal]", "True"}], "&&", 
+       RowBox[{"every", "\[Equal]", "1"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ListPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"dataset", ",", "observed4plot"}], "}"}], ",", 
+        RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<time (days)\>\"", ",", 
+           "\"\<log10 number of parasites (/\[Mu]L)\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "8"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "6"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "480"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Dashed"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"\"\<RMSD: \>\"", "<>", 
+          RowBox[{"ToString", "@", "rmsd"}]}]}], ",", 
+        RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+        RowBox[{"GridLinesStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"LightGray", ",", "Dashed"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], "]"}]}], 
+        ",", 
+        RowBox[{"PlotMarkers", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<\[CircleTimes]\>\"", ",", "12"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<\>\"", ",", "10"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"Placed", "[", 
+          RowBox[{
+           RowBox[{"LineLegend", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\"\<data\>\"", ",", "\"\<model\>\""}], "}"}], ",", 
+             RowBox[{"LegendFunction", "\[Rule]", "Framed"}]}], "]"}], ",", 
+           "Bottom"}], "]"}]}]}], "]"}], "\[IndentingNewLine]", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"obs", "\[Equal]", "False"}], "&&", 
+       RowBox[{"every", "\[Equal]", "24"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ListPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"dataset", ",", "totalevery24"}], "}"}], ",", 
+        RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<time (day)\>\"", ",", 
+           "\"\<log10 number of parasites (/\[Mu]L)\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "8"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "6"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "480"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Dashed"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"\"\<RMSD: \>\"", "<>", 
+          RowBox[{"ToString", "@", "rmsd"}]}]}], ",", 
+        RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+        RowBox[{"GridLinesStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"LightGray", ",", "Dashed"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], "]"}]}], 
+        ",", 
+        RowBox[{"PlotMarkers", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<\[CircleTimes]\>\"", ",", "12"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<\>\"", ",", "10"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"Placed", "[", 
+          RowBox[{
+           RowBox[{"LineLegend", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\"\<data\>\"", ",", "\"\<model\>\""}], "}"}], ",", 
+             RowBox[{"LegendFunction", "\[Rule]", "Framed"}]}], "]"}], ",", 
+           "Bottom"}], "]"}]}]}], "]"}], "\[IndentingNewLine]", ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"obs", "\[Equal]", "True"}], "&&", 
+       RowBox[{"every", "\[Equal]", "24"}]}], ",", "\[IndentingNewLine]", 
+      RowBox[{"ListPlot", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"dataset", ",", "observed24"}], "}"}], ",", 
+        RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+        RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+        RowBox[{"FrameLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<time (days)\>\"", ",", 
+           "\"\<log10 number of parasites (/\[Mu]L)\>\""}], "}"}]}], ",", 
+        RowBox[{"PlotRange", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "8"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "6"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "480"}], ",", 
+        RowBox[{"PlotStyle", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Dashed"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Black", ",", "Thick"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLabel", "\[Rule]", 
+         RowBox[{"\"\<RMSD: \>\"", "<>", 
+          RowBox[{"ToString", "@", "rmsd"}]}]}], ",", 
+        RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+        RowBox[{"GridLinesStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"LightGray", ",", "Dashed"}], "]"}]}], ",", 
+        RowBox[{"LabelStyle", "\[Rule]", 
+         RowBox[{"Directive", "[", 
+          RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}], "]"}]}], 
+        ",", 
+        RowBox[{"PlotMarkers", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"\"\<\[CircleTimes]\>\"", ",", "12"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<\>\"", ",", "10"}], "}"}]}], "}"}]}], ",", 
+        RowBox[{"PlotLegends", "\[Rule]", 
+         RowBox[{"Placed", "[", 
+          RowBox[{
+           RowBox[{"LineLegend", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"\"\<data\>\"", ",", "\"\<model\>\""}], "}"}], ",", 
+             RowBox[{"LegendFunction", "\[Rule]", "Framed"}]}], "]"}], ",", 
+           "Bottom"}], "]"}]}]}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"Style", "[", 
+    RowBox[{
+    "\"\<Mahidol-Oxford Tropical Medicine Research Unit\>\"", ",", "Bold"}], 
+    "]"}], ",", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{
+   "Style", "[", "\"\<N. J. White, et al.,T ROY SOC TROP MED H (1992)\>\"", 
+    "]"}], ",", "\[IndentingNewLine]", "Delimiter", ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"dataset", ",", "dat1", ",", "\"\<data set\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"dat1", "\[Rule]", "1"}], ",", 
+       RowBox[{"dat2", "\[Rule]", "2"}], ",", 
+       RowBox[{"dat3", "\[Rule]", "3"}], ",", 
+       RowBox[{"dat4", "\[Rule]", "4"}]}], "}"}], ",", "RadioButton"}], "}"}],
+    ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"obs", ",", "True", ",", "\"\<only observed parasites\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"True", "\[Rule]", "\"\<Yes\>\""}], ",", 
+       RowBox[{"False", "\[Rule]", "\"\<No\>\""}]}], "}"}], ",", 
+     "RadioButton"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"every", ",", "24", ",", "\"\<measure every\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<1 hour\>\""}], ",", 
+       RowBox[{"24", "\[Rule]", "\"\<24 hours\>\""}]}], "}"}], ",", 
+     "RadioButton"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "initN", ",", "2.5", ",", 
+       "\"\<log10 initial number of parasites \>\""}], "}"}], ",", "0.01", 
+     ",", "14", ",", "0.01", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"mu", ",", "33", ",", "\"\<Mean age (hours)\>\""}], "}"}], ",", 
+     "1", ",", "48", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"sigma", ",", "3", ",", "\"\<SD (hours)\>\""}], "}"}], ",", "1",
+      ",", "48", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "pmr", ",", "5", ",", "\"\<mutiplication rate (/ 48 hours)\>\""}], 
+      "}"}], ",", "1", ",", "30", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "maxobservedage", ",", "26", ",", "\"\<Max observed age (hours)\>\""}], 
+      "}"}], ",", "1", ",", "48", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+   "Style", "[", 
+    "\"\<* The data set 1-4 were from J. A. Simpson, et al.,Parasitology \
+(2002) \>\"", "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Shiftonehour", "[", 
+        RowBox[{"ls_List", ",", "PMR_Integer"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", "tmp", "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"tmp", "=", "ls"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"tmp", "=", 
+           RowBox[{"RotateRight", "[", "tmp", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ReplacePart", "[", 
+           RowBox[{"tmp", ",", 
+            RowBox[{"1", "\[Rule]", 
+             RowBox[{
+              RowBox[{"tmp", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], "*", "PMR"}]}]}], "]"}]}]}], 
+        "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", "\n", 
+      RowBox[{
+       RowBox[{"NJW", "[", 
+        RowBox[{
+        "initN_", ",", "LC_", ",", "mu_", ",", "sigma_", ",", "pmr_", ",", 
+         "runT_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"distr", ",", "x", ",", "lst", ",", "temp", ",", "outls"}], 
+          "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"distr", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"PDF", "[", 
+               RowBox[{
+                RowBox[{"NormalDistribution", "[", 
+                 RowBox[{"mu", ",", "sigma"}], "]"}], ",", "x"}], "]"}], "//",
+               "N"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "1", ",", "LC"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"temp", "=", 
+           RowBox[{"Chop", "[", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"initN", "/", 
+               RowBox[{"Total", "[", "distr", "]"}]}], ")"}], "*", "distr"}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+            RowBox[{"lst", "=", 
+             RowBox[{"NestList", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Shiftonehour", "[", 
+                 RowBox[{"#", ",", "pmr"}], "]"}], "&"}], ",", "temp", ",", 
+               "runT"}], "]"}]}], ";"}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"outls", "=", 
+           RowBox[{
+            RowBox[{"Reap", "[", 
+             RowBox[{"Do", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"temp", "=", 
+                 RowBox[{"Shiftonehour", "[", 
+                  RowBox[{"temp", ",", "pmr"}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Sow", "[", "temp", "]"}], ";"}], 
+               "\[IndentingNewLine]", ",", 
+               RowBox[{"{", "runT", "}"}]}], "]"}], "]"}], "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "outls"}]}], "\[IndentingNewLine]", "]"}]}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"dat1", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0.998772330693`", ",", "2.43652600169`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.003241746`", ",", "1.48798762719`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3.00236359109`", ",", "4.08491452189`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4.00386213405`", ",", "1.77274574139`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5.00301893057`", ",", "4.38571534674`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6.00563591959`", ",", "2.58691330732`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"7.0156975652`", ",", "4.20520863825`"}], "}"}]}], "}"}]}], 
+      ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"dat2", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1.00300669028`", ",", "3.00396694215`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.99940181031`", ",", "2.68170011806`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"3.00023612751`", ",", "4.60344746163`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4.00673750492`", ",", "3.38989374262`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5.00782369146`", ",", "5.43896103896`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6.01363242818`", ",", "3.87527744982`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"7.01405745769`", ",", "5.59012987013`"}], "}"}]}], "}"}]}],
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"dat3", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"1.00298507463`", ",", "2.01072386059`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.99402985075`", ",", "5.00268096515`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.98507462687`", ",", "3.82841823056`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4", ",", "5.2600536193`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5.00298507463`", ",", "4.43967828418`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6.00597014925`", ",", "5.50134048257`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6.99701492537`", ",", "5.32439678284`"}], "}"}]}], "}"}]}],
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"dat4", "=", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0.974966850163`", ",", "1.59480853458`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1.99268694499`", ",", "1.91533732471`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"2.99690601519`", ",", "1.84879656045`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"4.00845421304`", ",", "3.62095069715`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5.011130309`", ",", "3.16731626954`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"6.00712018323`", ",", "4.03627596737`"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"7.00741752722`", ",", "2.98587214208`"}], "}"}]}], "}"}]}],
+       ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", "}"}]}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.5419958270579157`*^9, 3.5419958738894157`*^9}, {
+   3.541995920798917*^9, 3.5419959688160243`*^9}, {3.5419960175039363`*^9, 
+   3.5419960725878897`*^9}, {3.541996163770474*^9, 3.541996239009756*^9}, {
+   3.5419962695547523`*^9, 3.541996381719471*^9}, {3.5419964207197213`*^9, 
+   3.5419964259613547`*^9}, {3.5419964991882243`*^9, 3.541996563148634*^9}, {
+   3.541996668322914*^9, 3.541996681879401*^9}, {3.541996713064001*^9, 
+   3.541996721753257*^9}, {3.541996754669468*^9, 3.5419967860724688`*^9}, {
+   3.5419968166330647`*^9, 3.5419969125424795`*^9}, {3.5419970485597515`*^9, 
+   3.541997053302182*^9}, {3.541997148665593*^9, 3.5419972933565207`*^9}, {
+   3.5419973407652245`*^9, 3.5419973617005587`*^9}, {3.541997398189193*^9, 
+   3.541997399468401*^9}, {3.5419974513075333`*^9, 3.541997472133667*^9}, {
+   3.541997503068665*^9, 3.5419975217107844`*^9}, {3.5419976142037773`*^9, 
+   3.541997656979252*^9}, {3.54199783307318*^9, 3.541997834991993*^9}, {
+   3.5419979385454564`*^9, 3.5419979418838778`*^9}, {3.54199797347408*^9, 
+   3.541997974675288*^9}, {3.54199810910135*^9, 3.541998113672179*^9}, {
+   3.541998186477846*^9, 3.541998221000867*^9}, {3.541998308501828*^9, 
+   3.5419984224449587`*^9}, {3.5419984733636847`*^9, 
+   3.5419986039989223`*^9}, {3.54199884232165*^9, 3.541998880245493*^9}, {
+   3.541998975702505*^9, 3.5419990256072245`*^9}, {3.5419990781795616`*^9, 
+   3.541999129784693*^9}, {3.541999174463379*^9, 3.541999237612584*^9}, {
+   3.541999432660634*^9, 3.5419994381848764`*^9}, {3.541999483662509*^9, 
+   3.5419995195732956`*^9}, {3.54200075818382*^9, 3.542000770008771*^9}, {
+   3.5420008924859414`*^9, 3.5420010714982367`*^9}, {3.5420012699949512`*^9, 
+   3.542001281679426*^9}, {3.5420015691424685`*^9, 3.5420016129631495`*^9}, {
+   3.542001929270777*^9, 3.542001944714876*^9}, {3.5420021865320263`*^9, 
+   3.5420021979669*^9}, {3.5420022347051353`*^9, 3.5420022631597176`*^9}, {
+   3.5420684364118176`*^9, 3.5420685969056463`*^9}, {3.542070515285778*^9, 
+   3.5420705636616883`*^9}, {3.5420707509012947`*^9, 3.54207075954375*^9}, 
+   3.54259528950247*^9, {3.5486505444352922`*^9, 3.548650561698018*^9}, {
+   3.5486506611509624`*^9, 3.548650701080955*^9}, {3.5486510037972236`*^9, 
+   3.5486510290117445`*^9}, {3.5486510691847615`*^9, 
+   3.5486510781526585`*^9}, {3.548651108931736*^9, 3.5486511177476177`*^9}, {
+   3.548651153454188*^9, 3.548651177310573*^9}, {3.548651215991441*^9, 
+   3.5486512408799295`*^9}, {3.5486515295407925`*^9, 
+   3.5486515461574545`*^9}, {3.5486515787347116`*^9, 3.548651586347473*^9}, 
+   3.54865170873271*^9, {3.5486523586967*^9, 3.5486523601438446`*^9}, 
+   3.5487455799354897`*^9, {3.548745631610244*^9, 3.5487456588443294`*^9}, 
+   3.548745695754631*^9, {3.5487458910643587`*^9, 3.548745909709478*^9}, {
+   3.5865678211042433`*^9, 3.5865678415091743`*^9}, {3.5865678962499247`*^9, 
+   3.586567922286492*^9}, {3.586567983002081*^9, 3.586568000957796*^9}, {
+   3.586568123699383*^9, 3.5865681312654314`*^9}, {3.586658604485588*^9, 
+   3.586658652331401*^9}, {3.586839819832328*^9, 3.586839972915389*^9}, {
+   3.586840016326257*^9, 3.5868400839876103`*^9}, {3.5868403004419394`*^9, 
+   3.586840397093872*^9}, {3.5868426730296273`*^9, 3.5868427636414394`*^9}, {
+   3.636409279451686*^9, 3.6364093329952083`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`dataset$$ = {{0.998772330693, 
+    2.43652600169}, {2.003241746, 1.48798762719}, {3.00236359109, 
+    4.08491452189}, {4.00386213405, 1.77274574139}, {5.00301893057, 
+    4.38571534674}, {6.00563591959, 2.58691330732}, {7.0156975652, 
+    4.20520863825}}, $CellContext`every$$ = 24, $CellContext`initN$$ = 
+    2.5, $CellContext`maxobservedage$$ = 26, $CellContext`mu$$ = 
+    33, $CellContext`obs$$ = True, $CellContext`pmr$$ = 
+    5, $CellContext`sigma$$ = 3, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Mahidol-Oxford Tropical Medicine Research Unit", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Style["N. J. White, et al.,T ROY SOC TROP MED H (1992)"]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`dataset$$], {{0.998772330693, 2.43652600169}, {
+       2.003241746, 1.48798762719}, {3.00236359109, 4.08491452189}, {
+       4.00386213405, 1.77274574139}, {5.00301893057, 4.38571534674}, {
+       6.00563591959, 2.58691330732}, {7.0156975652, 4.20520863825}}, 
+       "data set"}, {{{0.998772330693, 2.43652600169}, {2.003241746, 
+        1.48798762719}, {3.00236359109, 4.08491452189}, {4.00386213405, 
+        1.77274574139}, {5.00301893057, 4.38571534674}, {6.00563591959, 
+        2.58691330732}, {7.0156975652, 4.20520863825}} -> 
+       1, {{1.00300669028, 3.00396694215}, {1.99940181031, 2.68170011806}, {
+        3.00023612751, 4.60344746163}, {4.00673750492, 3.38989374262}, {
+        5.00782369146, 5.43896103896}, {6.01363242818, 3.87527744982}, {
+        7.01405745769, 5.59012987013}} -> 
+       2, {{1.00298507463, 2.01072386059}, {1.99402985075, 5.00268096515}, {
+         2.98507462687, 3.82841823056}, {4, 5.2600536193}, {5.00298507463, 
+         4.43967828418}, {6.00597014925, 5.50134048257}, {6.99701492537, 
+         5.32439678284}} -> 
+       3, {{0.974966850163, 1.59480853458}, {1.99268694499, 1.91533732471}, {
+        2.99690601519, 1.84879656045}, {4.00845421304, 3.62095069715}, {
+        5.011130309, 3.16731626954}, {6.00712018323, 4.03627596737}, {
+        7.00741752722, 2.98587214208}} -> 4}}, {{
+       Hold[$CellContext`obs$$], True, "only observed parasites"}, {
+      True -> "Yes", False -> "No"}}, {{
+       Hold[$CellContext`every$$], 24, "measure every"}, {
+      1 -> "1 hour", 24 -> "24 hours"}}, {{
+       Hold[$CellContext`initN$$], 2.5, "log10 initial number of parasites "},
+       0.01, 14, 0.01}, {{
+       Hold[$CellContext`mu$$], 33, "Mean age (hours)"}, 1, 48, 1}, {{
+       Hold[$CellContext`sigma$$], 3, "SD (hours)"}, 1, 48, 1}, {{
+       Hold[$CellContext`pmr$$], 5, "mutiplication rate (/ 48 hours)"}, 1, 30,
+       1}, {{
+       Hold[$CellContext`maxobservedage$$], 26, "Max observed age (hours)"}, 
+      1, 48, 1}, {
+      Hold[
+       Style[
+       "* The data set 1-4 were from J. A. Simpson, et al.,Parasitology \
+(2002) "]], Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = {
+    480., {206., 169.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`dataset$5305$$ = 
+    False, $CellContext`obs$5306$$ = False, $CellContext`every$5307$$ = 
+    False, $CellContext`initN$5308$$ = 0, $CellContext`mu$5309$$ = 
+    0, $CellContext`sigma$5310$$ = 0, $CellContext`pmr$5311$$ = 
+    0, $CellContext`maxobservedage$5312$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`dataset$$ = {{0.998772330693, 
+         2.43652600169}, {2.003241746, 1.48798762719}, {3.00236359109, 
+         4.08491452189}, {4.00386213405, 1.77274574139}, {5.00301893057, 
+         4.38571534674}, {6.00563591959, 2.58691330732}, {7.0156975652, 
+         4.20520863825}}, $CellContext`every$$ = 24, $CellContext`initN$$ = 
+        2.5, $CellContext`maxobservedage$$ = 26, $CellContext`mu$$ = 
+        33, $CellContext`obs$$ = True, $CellContext`pmr$$ = 
+        5, $CellContext`sigma$$ = 3}, "ControllerVariables" :> {
+        Hold[$CellContext`dataset$$, $CellContext`dataset$5305$$, False], 
+        Hold[$CellContext`obs$$, $CellContext`obs$5306$$, False], 
+        Hold[$CellContext`every$$, $CellContext`every$5307$$, False], 
+        Hold[$CellContext`initN$$, $CellContext`initN$5308$$, 0], 
+        Hold[$CellContext`mu$$, $CellContext`mu$5309$$, 0], 
+        Hold[$CellContext`sigma$$, $CellContext`sigma$5310$$, 0], 
+        Hold[$CellContext`pmr$$, $CellContext`pmr$5311$$, 0], 
+        Hold[$CellContext`maxobservedage$$, \
+$CellContext`maxobservedage$5312$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> ($CellContext`dat = Chop[
+          $CellContext`NJW[
+          10^$CellContext`initN$$, 
+           48, $CellContext`mu$$, $CellContext`sigma$$, $CellContext`pmr$$, 
+           192]]; $CellContext`total = Map[Log10, 
+          Map[Total, $CellContext`dat]]; $CellContext`total4plot = 
+        Table[{$CellContext`i/24., 
+           Part[$CellContext`total, $CellContext`i]}, {$CellContext`i, 1, 
+           Length[$CellContext`total]}]; $CellContext`observed = Map[Log10, 
+          Map[Total, 
+           Map[Part[#, 
+             Span[
+             1, $CellContext`maxobservedage$$]]& , $CellContext`dat]]]; \
+$CellContext`observed4plot = Table[{$CellContext`i/24., 
+           Part[$CellContext`observed, $CellContext`i]}, {$CellContext`i, 1, 
+           Length[$CellContext`observed]}]; $CellContext`totalevery24 = 
+        Take[$CellContext`total4plot, {1, 
+           Length[$CellContext`total4plot], 24}]; $CellContext`observed24 = 
+        Take[$CellContext`observed4plot, {1, 
+           Length[$CellContext`observed4plot], 24}]; $CellContext`rmsd = 
+        RootMeanSquare[(Drop[#, {8}]& )[
+            Part[$CellContext`observed24, All, 2]] - 
+          Part[$CellContext`dataset$$, All, 2]]; Which[
+         And[$CellContext`obs$$ == False, $CellContext`every$$ == 1], 
+         ListPlot[{$CellContext`dataset$$, $CellContext`total4plot}, Joined -> 
+          True, Frame -> True, 
+          FrameLabel -> {"time (day)", "log10 number of parasites (/\[Mu]L)"},
+           PlotRange -> {{0, 8}, {0, 6}}, ImageSize -> 480, 
+          PlotStyle -> {{Black, Dashed}, {Black, Thick}}, PlotLabel -> 
+          StringJoin["RMSD: ", 
+            ToString[$CellContext`rmsd]], GridLines -> Automatic, 
+          GridLinesStyle -> Directive[LightGray, Dashed], LabelStyle -> 
+          Directive[FontFamily -> "Helvetica"], 
+          PlotMarkers -> {{"\[CircleTimes]", 12}, {"", 10}}, PlotLegends -> 
+          Placed[
+            LineLegend[{"data", "model"}, LegendFunction -> Framed], Bottom]], 
+         And[$CellContext`obs$$ == True, $CellContext`every$$ == 1], 
+         ListPlot[{$CellContext`dataset$$, $CellContext`observed4plot}, 
+          Joined -> True, Frame -> True, 
+          FrameLabel -> {
+           "time (days)", "log10 number of parasites (/\[Mu]L)"}, 
+          PlotRange -> {{0, 8}, {0, 6}}, ImageSize -> 480, 
+          PlotStyle -> {{Black, Dashed}, {Black, Thick}}, PlotLabel -> 
+          StringJoin["RMSD: ", 
+            ToString[$CellContext`rmsd]], GridLines -> Automatic, 
+          GridLinesStyle -> Directive[LightGray, Dashed], LabelStyle -> 
+          Directive[FontFamily -> "Helvetica"], 
+          PlotMarkers -> {{"\[CircleTimes]", 12}, {"", 10}}, PlotLegends -> 
+          Placed[
+            LineLegend[{"data", "model"}, LegendFunction -> Framed], Bottom]], 
+         And[$CellContext`obs$$ == False, $CellContext`every$$ == 24], 
+         ListPlot[{$CellContext`dataset$$, $CellContext`totalevery24}, Joined -> 
+          True, Frame -> True, 
+          FrameLabel -> {"time (day)", "log10 number of parasites (/\[Mu]L)"},
+           PlotRange -> {{0, 8}, {0, 6}}, ImageSize -> 480, 
+          PlotStyle -> {{Black, Dashed}, {Black, Thick}}, PlotLabel -> 
+          StringJoin["RMSD: ", 
+            ToString[$CellContext`rmsd]], GridLines -> Automatic, 
+          GridLinesStyle -> Directive[LightGray, Dashed], LabelStyle -> 
+          Directive[FontFamily -> "Helvetica"], 
+          PlotMarkers -> {{"\[CircleTimes]", 12}, {"", 10}}, PlotLegends -> 
+          Placed[
+            LineLegend[{"data", "model"}, LegendFunction -> Framed], Bottom]], 
+         And[$CellContext`obs$$ == True, $CellContext`every$$ == 24], 
+         ListPlot[{$CellContext`dataset$$, $CellContext`observed24}, Joined -> 
+          True, Frame -> True, 
+          FrameLabel -> {
+           "time (days)", "log10 number of parasites (/\[Mu]L)"}, 
+          PlotRange -> {{0, 8}, {0, 6}}, ImageSize -> 480, 
+          PlotStyle -> {{Black, Dashed}, {Black, Thick}}, PlotLabel -> 
+          StringJoin["RMSD: ", 
+            ToString[$CellContext`rmsd]], GridLines -> Automatic, 
+          GridLinesStyle -> Directive[LightGray, Dashed], LabelStyle -> 
+          Directive[FontFamily -> "Helvetica"], 
+          PlotMarkers -> {{"\[CircleTimes]", 12}, {"", 10}}, PlotLegends -> 
+          Placed[
+            LineLegend[{"data", "model"}, LegendFunction -> Framed], 
+            Bottom]]]), "Specifications" :> {
+        Style["Mahidol-Oxford Tropical Medicine Research Unit", Bold], 
+        Delimiter, 
+        Style["N. J. White, et al.,T ROY SOC TROP MED H (1992)"], 
+        Delimiter, {{$CellContext`dataset$$, {{0.998772330693, 
+          2.43652600169}, {2.003241746, 1.48798762719}, {3.00236359109, 
+          4.08491452189}, {4.00386213405, 1.77274574139}, {5.00301893057, 
+          4.38571534674}, {6.00563591959, 2.58691330732}, {7.0156975652, 
+          4.20520863825}}, 
+          "data set"}, {{{0.998772330693, 2.43652600169}, {2.003241746, 
+           1.48798762719}, {3.00236359109, 4.08491452189}, {4.00386213405, 
+           1.77274574139}, {5.00301893057, 4.38571534674}, {6.00563591959, 
+           2.58691330732}, {7.0156975652, 4.20520863825}} -> 
+          1, {{1.00300669028, 3.00396694215}, {1.99940181031, 
+           2.68170011806}, {3.00023612751, 4.60344746163}, {4.00673750492, 
+           3.38989374262}, {5.00782369146, 5.43896103896}, {6.01363242818, 
+           3.87527744982}, {7.01405745769, 5.59012987013}} -> 
+          2, {{1.00298507463, 2.01072386059}, {1.99402985075, 
+            5.00268096515}, {2.98507462687, 3.82841823056}, {
+            4, 5.2600536193}, {5.00298507463, 4.43967828418}, {6.00597014925, 
+            5.50134048257}, {6.99701492537, 5.32439678284}} -> 
+          3, {{0.974966850163, 1.59480853458}, {1.99268694499, 
+           1.91533732471}, {2.99690601519, 1.84879656045}, {4.00845421304, 
+           3.62095069715}, {5.011130309, 3.16731626954}, {6.00712018323, 
+           4.03627596737}, {7.00741752722, 2.98587214208}} -> 4}, ControlType -> 
+         RadioButton}, {{$CellContext`obs$$, True, 
+          "only observed parasites"}, {True -> "Yes", False -> "No"}, 
+         ControlType -> 
+         RadioButton}, {{$CellContext`every$$, 24, "measure every"}, {
+         1 -> "1 hour", 24 -> "24 hours"}, ControlType -> 
+         RadioButton}, {{$CellContext`initN$$, 2.5, 
+          "log10 initial number of parasites "}, 0.01, 14, 0.01, Appearance -> 
+         "Labeled"}, {{$CellContext`mu$$, 33, "Mean age (hours)"}, 1, 48, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`sigma$$, 3, "SD (hours)"}, 
+         1, 48, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`pmr$$, 5, 
+          "mutiplication rate (/ 48 hours)"}, 1, 30, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`maxobservedage$$, 26, 
+          "Max observed age (hours)"}, 1, 48, 1, Appearance -> "Labeled"}, 
+        Style[
+        "* The data set 1-4 were from J. A. Simpson, et al.,Parasitology \
+(2002) "]}, "Options" :> {ControlPlacement -> Top}, "DefaultOptions" :> {}],
+     ImageSizeCache->{531., {350., 357.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`Shiftonehour[
+          Pattern[$CellContext`ls, 
+           Blank[List]], 
+          Pattern[$CellContext`PMR, 
+           Blank[Integer]]] := 
+        Module[{$CellContext`tmp}, $CellContext`tmp = $CellContext`ls; \
+$CellContext`tmp = RotateRight[$CellContext`tmp]; 
+          ReplacePart[$CellContext`tmp, 1 -> 
+            Part[$CellContext`tmp, 1] $CellContext`PMR]]; $CellContext`NJW[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`LC, 
+           Blank[]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]], 
+          Pattern[$CellContext`pmr, 
+           Blank[]], 
+          Pattern[$CellContext`runT, 
+           Blank[]]] := 
+        Module[{$CellContext`distr, $CellContext`x, $CellContext`lst, \
+$CellContext`temp, $CellContext`outls}, $CellContext`distr = Table[
+             N[
+              PDF[
+               
+               NormalDistribution[$CellContext`mu, $CellContext`sigma], \
+$CellContext`x]], {$CellContext`x, 1, $CellContext`LC}]; $CellContext`temp = 
+           Chop[($CellContext`initN/
+              Total[$CellContext`distr]) $CellContext`distr]; \
+$CellContext`outls = Part[
+             Reap[
+              
+              Do[$CellContext`temp = \
+$CellContext`Shiftonehour[$CellContext`temp, $CellContext`pmr]; 
+               Sow[$CellContext`temp]; Null, {$CellContext`runT}]], 2, 
+             1]; $CellContext`outls]; $CellContext`dat1 = {{0.998772330693, 
+         2.43652600169}, {2.003241746, 1.48798762719}, {3.00236359109, 
+         4.08491452189}, {4.00386213405, 1.77274574139}, {5.00301893057, 
+         4.38571534674}, {6.00563591959, 2.58691330732}, {7.0156975652, 
+         4.20520863825}}; $CellContext`dat2 = {{1.00300669028, 
+         3.00396694215}, {1.99940181031, 2.68170011806}, {3.00023612751, 
+         4.60344746163}, {4.00673750492, 3.38989374262}, {5.00782369146, 
+         5.43896103896}, {6.01363242818, 3.87527744982}, {7.01405745769, 
+         5.59012987013}}; $CellContext`dat3 = {{1.00298507463, 
+          2.01072386059}, {1.99402985075, 5.00268096515}, {2.98507462687, 
+          3.82841823056}, {4, 5.2600536193}, {5.00298507463, 4.43967828418}, {
+          6.00597014925, 5.50134048257}, {6.99701492537, 
+          5.32439678284}}; $CellContext`dat4 = {{0.974966850163, 
+         1.59480853458}, {1.99268694499, 1.91533732471}, {2.99690601519, 
+         1.84879656045}, {4.00845421304, 3.62095069715}, {5.011130309, 
+         3.16731626954}, {6.00712018323, 4.03627596737}, {7.00741752722, 
+         2.98587214208}}; Null}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.5419967873828773`*^9, 3.54199692516296*^9, 3.5419970562974014`*^9, 
+   3.5419972273992977`*^9, {3.541997272062384*^9, 3.54199729480733*^9}, 
+   3.541997362386963*^9, 3.541997420107333*^9, 3.5419974873593645`*^9, 
+   3.5419975334576597`*^9, 3.5419976629696903`*^9, 3.5419978407796297`*^9, 
+   3.5419979796673203`*^9, 3.5419981148109865`*^9, 3.541998606292137*^9, 
+   3.5419993569065485`*^9, 3.5419994445211563`*^9, 3.541999521742613*^9, 
+   3.542001286203455*^9, 3.542001628485249*^9, 3.542001961422583*^9, 
+   3.5420022715525713`*^9, 3.542002333085376*^9, {3.542068570182675*^9, 
+   3.5420685983564553`*^9}, 3.542070566719308*^9, 3.542070718820283*^9, 
+   3.5420707632097735`*^9, 3.5486507097538223`*^9, 3.548651184238266*^9, 
+   3.54865124248409*^9, 3.54865154891673*^9, 3.548651588931731*^9, 
+   3.548651710040841*^9, {3.5486523390437346`*^9, 3.5486523607479053`*^9}, 
+   3.548745581635744*^9, 3.548745697267722*^9, 3.54874577417834*^9, 
+   3.5487459185210075`*^9, 3.586567843864789*^9, {3.5865678991515436`*^9, 
+   3.586567923378499*^9}, 3.586568008757846*^9, 3.58656813730267*^9, 
+   3.5866586555294423`*^9, 3.5868395493459177`*^9, {3.586840373323397*^9, 
+   3.5868403985139008`*^9}, 3.5868404326345835`*^9, {3.5868426917300014`*^9, 
+   3.586842720610579*^9}, 3.586842768531537*^9, 3.6364092982557926`*^9, 
+   3.63640933625416*^9}]
+}, Open  ]]
+},
+WindowSize->{819, 837},
+WindowMargins->{{161, Automatic}, {Automatic, 49}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 24935, 582, 2012, "Input"],
+Cell[25517, 606, 16537, 287, 757, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
