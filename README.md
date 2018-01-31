@@ -1,4 +1,6 @@
-# _P. falciparum_ Dynamics
+# A collection of the _P. falciparum_ Dynamic models
+
+A collection of the dynamic models of _P. falciparum_ in human before and during treatment with antimalarial drugs.
 
 1. White, N.J., Chapman, D., & Watt, G.(1992) The effects of multiplication and synchronicity on the vascular distribution of parasites in falciparum malaria Transactions of the Royal Society of Tropical Medicine and Hygiene 86, 590 - 597 
 ![](http://www.sakngoi.com/wp-content/uploads/2017/03/NJW-data.gif)
