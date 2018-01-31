@@ -1,0 +1,2240 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     99554,       2230]
+NotebookOptionsPosition[     98013,       2177]
+NotebookOutlinePosition[     98736,       2203]
+CellTagsIndexPosition[     98693,       2200]
+WindowTitle->A Model of Plasmodium Falciparum Population Dynamics in a \
+Patient during Treatment with Artesunate - Source
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "A Model of ",
+ StyleBox["Plasmodium Falciparum",
+  FontSlant->"Italic"],
+ " Population Dynamics in a Patient during Treatment with Artesunate"
+}], "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False,
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJztnVuSozgWQDNiPqa3MJ+zpVlCbaB3WlGVNV9dvYH6TQRUph/ZGIHQmwvG
+xoZzQu3Aku7VfUj4Nk53//fLn//78q+Xl5f/NP/88e+Xl8v154Xj5+fp89y0
+4+X63L7VnQu02XqOt9FzjRK5qtRMoYZFpk11/Ji+WDye92+r7+fFfbnGkuu9
+eIQ4LBVJ+YRo5DPnRdITDp0TLRg6m/62nY/n08f5+H461G37fWqum57z4Xy2
+jby0prMZOh4/jodLOx2bt6fzRSEA3B/KMKGSBy/DSKVcyYOn8krHqajvqed6
+G6iol4qkfAIVNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADsizPA/lj72AEA
+AMCmWLu0AXh01j6jAAAAcdb+hNwUJ5e1zZnPDEeey/e1jx0AAABsirVLm03x
+XFVlhs1X1JNY+4wCAAB02B9PJ4BdsvYpBAAAgOeGihpADo9GAUDIr+Lnr7ef
+a9vw16/i73VtMPx6+2v1gGwMijeAE89FAQA2DRW1BxX14lBRA0wi+lx0baMA
+AAAAAAAAAAAAbkj0uegR4L4cDoe1TYA1YQMAbIaDy9rm3JU9+w4AjwB3np3D
+BgDYDHuuKu/su3k0ynNRACGLHMy93dm2ijCPpHvD7LliAQAAmA0VNRioqIGK
+GlYk9Vz0AAAAAAAAAAAAALBR9KPR8Kf0a9sFAAAAAAAAAAAAcCt4LgoAAAAA
+AAAAAAB7I/Vc9ONheH9/X9uEzUJsZ0PoAGBZ3gNuLQgggR21GUjl7SC2syF0
+ALAsVNQgxMv14XAI/xOja9sIAAAAT0lYWM5jbT/msGffAQAAAGAp9lxV3sF3
+b1r0uehSZgAAAAAAAAAAAAA8Ar9b6rpuXpu3+tf0PBcFWJcFvxYBAAAAANgh
+VNQAADCK5LnobwAAAAAAAAAAAIANUbcPRav+wehH7LmoUqpsqKqmNTSXRVE0
+by593mtRXlrfo7mImTlVN6ebUOhR07q3jmxVWXqquqxVOUjZq1eDVNe662ro
+Nxe1Xr5o2lt5cUc7VWr3BpGindNL6TkDl5nVIGWtbuaXWbwJo/OVKjSX68oL
+shMTO4ylHf+yy5GbhU5EubJJPeWgx5ayBfvOIR2qD5QJXWmFtJs2pLsLvu40
+4oOesh/tJ3TKW/3DomZONgVdVPtNXvVXYWydyBRl/NWNWNW62L06G344TcNW
+L/SVpaTqcmeOWGWOm3W+TFPWsbL8dE1yklUal73ghDtBH+Hu1dE/HBM7/t7h
+sjNoN29Calrl2GadWfsMeoc0elcR584clrm5qzO5a+5mQe4imy2Tu1qcu+g2
+7od7mkvVtqJtajgInQuqzUrRtWFCzIAkzQdK0/RR1U33JEhtgOhosnmLKtX0
+DArVhaJHtZOlmgPbVN+mWZhRGzNvEc13MD61kIRcEPS2WciRp/C97a0ow569
+DCOVRurZU0lFnUoBFbWkKiv7I0xFLc4dFXUAFfVUtVTUYRD2V1EnfTd7u920
+v+va/NXoSXM86qXVwFtzgNvS7vJG3730Ga76Wkq/6lFz3dlWOa+69XpUOSix
+ixQtrrVV1pxBleO+uesMsv6QjenXF+bViFjGO5rtObaUp7bVoENe21Kqy1Un
+1M8xOaxNftysOh61q5joKStQpbkIQ2p54HRWXcqsOsbVU7oZNBr8Fbv+yotk
+GBkvbuFbu9/LkY6DF3ZvTvqtOVXdBi0dlN6WZekEsHfQ2flmjpnQ+25vfn//
+2yH1eswnokp/tNkpsJNrTqJruX4tzAkKBJXJVdUbbJmtrwtrUfuoGm2Ru5S3
+AcrEGQyPld3jzbFTH+oP+is3d+XVuev2wI1zN9w8rZM1I3dFf203xxKvuUyT
+TevJkd8JSzF7iVHBzJa+D0vFZJLapawNh6xiQ91ixaf03R+lDHvaMqwPCKl8
++lRGgkZF3W3Q0oGKmoq685yKmoo6L5jZ0vdhqZhMUruUteEQFfUk37VU98C8
+qRvq+uPjQz8UPZ/P+snoZYIqVAwtaFY0r+E0+8l8VIM3Gs70JkelUoLR0XBm
+2X5dldcmWS5lQ2r1jDue+DBaRvrzvidVpc2WOKJicRvVZu+HaFqjgpngC/MS
+Fek2rRvSjKCy9rnxfepWFFKokVMzWaEsU9GDbEYnbfuoYOpGkdcwql/Sv+fc
+CVdJcY1a+Yo3WuUaZsfE+9S+j3mTRuFZoAxL9eTtFK6ecccTH0bnlmGkMtXz
+dKnMLCTpifZTUUfnyNOR4QGrstQuHTXGFqSiXiV3wlVSXKNWvuKNVrmG2TGh
+ooZb0+T0rUWf/br9e1HvuWjR/z1/+JOUIujKPxYu+l9YCEX0kGVARDxjjHxa
+ygZv6ejF6KiE0cfp0eUk6JMrmVamQx1qkPTIRzNSo4LC0OnbV7S/tD7WRw32
+ElFYP1/y7EkZn09lPhHedej7vDiHSkbzq79YsWcWfUUUzYgXf7mdqa04eiK0
+ebYxe86d9yE+T3n+OzuVqHbMx01Up/kkCud7Q0ZJ5uvCRQhNGvVCoueayK9O
+mKP8qDDd9szol7b5AM5LSup0P7LvxXBX8dWGvlCGTTJm1IBwianK3QySyo2k
+clR/KtShBkmPfDQjNSpIRS0xexJRy8NjS0UtMfVBcmegoh6FijrkEarKPVfU
+Gd89w+rwd/Tt34uq/kuT6C2xsG5WhXvLsu+KUb+8/kxsvQMryUIxdp8PLc/c
+FiblXaJEcgvKuODFf54N8yYXwYejZ2fUbO8i5b7kXwRSPfJtFu1JWZ7BtlZu
+eRg9XXJEbcuriorIU2xkjYjQi2hJFjXeFvFmhjeNUWu9HhO3/LQoe8tdSKqC
+ys+f+tE5aZVoBSU0T87U+sr2emq4Ur7k9eQrhydiaqiF3LqSX4QFfacMk684
+yaT7l2GkUr7iJJOoqKMrUlGPritxZ9RyT9aIUFHn133e3IVQUQvVUlHPhor6
+1r6r/k9G9X1A/47+dDrZ/9+lb9++vbr8+PHDe7X7w077rafHU+JNTo1GF/Wu
+U52hhtCjqGEZJVGdoZsp5ZmZoRe2kc3Fd0tnKGKvJQ9UKr8pRh15dY0MZTOO
+e/pTa43OSUmFpn5Pbzzv7agveTNCJRnZ70FCX4OU5ZWn9KfiELrpLZ3aIZn0
+RYmGN+NRPsIpd7y19pa7qIhQZ15coicVmamMLjpb1SLmLUgmzlOtzau6RRAm
+bYxFTJoh9Vy+U4aNKonqDN1MKc/MDL2wjXydWIaRylElz5LKVExSS2Scigqm
+HHl1jQxlM457+lNrjc5JSYWmUlF7jqQ2RmqHZNIXJRrejEf5CKfc8dbaW+6i
+IkKdeXGJnlRkpjK66GxVi5i3IJk4T7U2r+oWQZi0MRYxaYbUZnyPLvH/lte2
+FP/69esnAAAAAAAAAAAAwM74B4thROM=
+   "], {{0, 0}, {1800, 25}}, {0, 255},
+   ColorFunction->RGBColor],
+  ImageSize->{1800, 25},
+  PlotRange->{{0, 1800}, {0, 25}}]], "Section",
+ CellFrame->{{0, 0}, {0, 0}},
+ ShowCellBracket->False],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Column", "[", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ParaDist", "[", 
+       RowBox[{"initN", ",", "48", ",", "\[Mu]", ",", "\[Sigma]"}], "]"}], 
+      ",", "\[IndentingNewLine]", 
+      RowBox[{"DHAGraph", "[", 
+       RowBox[{"xm", ",", "ym", ",", "a", ",", "ke"}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ParaGraph", "[", 
+       RowBox[{
+       "initN", ",", "PMR", ",", "\[Mu]", ",", "\[Sigma]", ",", "48", ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"KZRB", ",", "KZRE"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"KZRE", "+", "1"}], ",", "KZTE"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"KZTE", "+", "1"}], ",", "KZSE"}], "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"xm", ",", "ym", ",", "a", ",", "ke"}], "}"}], ",", "everyH",
+         ",", "Ndrug", ",", 
+        RowBox[{"{", 
+         RowBox[{"\[Gamma]R", ",", "\[Gamma]T", ",", "\[Gamma]S"}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"ec50R", ",", "ec50T", ",", "ec50S"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.0", ",", "0.0", ",", "0.0"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"emaxR", ",", "emaxT", ",", "emaxS"}], "}"}], ",", "T", ",", 
+        "120"}], "]"}]}], "\[IndentingNewLine]", "}"}], "]"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ctrl", ",", "1", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<parasite distribution\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<dose regimen\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<DHA concentration\>\""}], ",", 
+       RowBox[{"4", "\[Rule]", "\"\<kill zones\>\""}], ",", 
+       RowBox[{"5", "\[Rule]", "\"\<killing effect\>\""}]}], "}"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Top"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"PaneSelector", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", " ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<Parasite distribution on admission\>\"", ",", "Bold"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           "\"\<initial number of parasites\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"initN", ",", 
+                RowBox[{"2.8", "*", 
+                 RowBox[{"10", "^", "11"}]}], ",", "\"\<\>\""}], "}"}], ",", 
+              RowBox[{"1.", "*", 
+               RowBox[{"10", "^", "11"}]}], ",", 
+              RowBox[{"10", "^", "12"}], ",", 
+              RowBox[{"0.5", "*", 
+               RowBox[{"10", "^", "11"}]}], ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", 
+           "\"\<parasite multiplication rate (/48 hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"PMR", ",", "7", ",", "\"\<\>\""}], "}"}], ",", "6", 
+              ",", "32", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<mean age of parasite (hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Mu]", ",", "10", ",", "\"\<\>\""}], "}"}], ",", "1",
+               ",", "48", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", 
+           "\"\<standard deviation of parasite ages (hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Sigma]", ",", "4", ",", "\"\<\>\""}], "}"}], ",", 
+              "1", ",", "50", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}]}], "}"}], 
+         "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"2", "\[Rule]", " ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Dose regimen\>\"", ",", "Bold"}], "]"}], ",", 
+           "\[IndentingNewLine]", "\"\<number of doses\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Ndrug", ",", "7", ",", "\"\<\>\""}], "}"}], ",", "1", 
+              ",", "24", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<dosing interval (hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"everyH", ",", "24", ",", "\"\<\>\""}], "}"}], ",", 
+              "1", ",", "48", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}]}], "}"}], 
+         "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"3", "\[Rule]", " ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<DHA concentration profile (for each dose)\>\"", ",", 
+             "Bold"}], "]"}], ",", "\[IndentingNewLine]", 
+           "\"\<time at max concentration (hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"xm", ",", "2", ",", "\"\<\>\""}], "}"}], ",", "1", 
+              ",", "20", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<max concentration (ng/ml)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"ym", ",", "1000", ",", "\"\<\>\""}], "}"}], ",", 
+              "0.5", ",", "2000.", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<elimination rate (/hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"ke", ",", "0.5", ",", "\"\<\>\""}], "}"}], ",", 
+              "0.001", ",", "10", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}]}], "}"}], 
+         "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"4", "\[Rule]", " ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Kill zones (sensitive ages) \>\"", ",", "Bold"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           "\"\<ring: begin kill zone (hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"KZRB", ",", "6", ",", "\"\<\>\""}], "}"}], ",", "1", 
+              ",", "96", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<ring: end kill zone (hours)\>\"", ",", 
+           
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"KZRE", ",", "26", ",", "\"\<\>\""}], "}"}], ",", 
+              "KZRB", ",", "60", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", 
+           "\"\<trophozoite: end kill zone (hours)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"KZTE", ",", "38", ",", "\"\<\>\""}], "}"}], ",", 
+              RowBox[{"KZRE", "+", "1"}], ",", "90", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<schizont: end kill zone (hours)\>\"", 
+           ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"KZSE", ",", "44", ",", "\"\<\>\""}], "}"}], ",", 
+              RowBox[{"KZTE", "+", "1"}], ",", "100", ",", "1", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}]}], "}"}], 
+         "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"5", "\[Rule]", " ", 
+        RowBox[{"Column", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Killing effect parameters\>\"", ",", "Bold"}], "]"}],
+            ",", "\[IndentingNewLine]", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Gamma]R", ",", "6.5"}], "}"}], ",", "0.5", ",", 
+              "10", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Gamma]T", ",", "6.5"}], "}"}], ",", "0.5", ",", 
+              "10", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"\[Gamma]S", ",", "6.5"}], "}"}], ",", "0.5", ",", 
+              "10", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<EC50 ring (ng/ml)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"ec50R", ",", "20.5", ",", "\"\<\>\""}], "}"}], ",", 
+              "0.001", ",", "100", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<EC50 trophozoites (ng/ml)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"ec50T", ",", "20.5", ",", "\"\<\>\""}], "}"}], ",", 
+              "0.001", ",", "100", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<EC50 schizont (ng/ml)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"ec50S", ",", "20.5", ",", "\"\<\>\""}], "}"}], ",", 
+              "0.001", ",", "100", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<ring: max efficacy (%)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"emaxR", ",", "99.99", ",", "\"\<\>\""}], "}"}], ",", 
+              "50", ",", "99.999", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<trophozoite: max efficacy (%)\>\"", 
+           ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"emaxT", ",", "99.99", ",", "\"\<\>\""}], "}"}], ",", 
+              "50", ",", "99.999", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<schizont: max efficacy (%)\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"emaxS", ",", "99.99", ",", "\"\<\>\""}], "}"}], ",", 
+              "50", ",", "99.999", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}], ",", 
+           "\[IndentingNewLine]", "\"\<1/alpha\>\"", ",", 
+           RowBox[{"Control", "@", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"T", ",", "5.", ",", "\"\<\>\""}], "}"}], ",", "1.", 
+              ",", "10.", ",", "0.001", ",", 
+              RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "Tiny"}]}], "}"}]}]}], "}"}], 
+         "]"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Dynamic", "[", "ctrl", "]"}]}], "\[IndentingNewLine]", "]"}], 
+   ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"SynchronousInitialization", "\[Rule]", "False"}], ",", 
+   RowBox[{"ContinuousAction", "\[Rule]", "False"}], ",", 
+   RowBox[{"AutorunSequencing", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Get", "[", "\"\<PlotLegends`\>\"", "]"}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"concentration", " ", "of", " ", "DHA"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"genpoints", "[", 
+        RowBox[{"xm_", ",", "ym_", ",", "ke_", ",", "x_"}], "]"}], ":=", 
+       RowBox[{"Piecewise", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"ym", "-", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"ym", "/", "xm"}], ")"}], "*", 
+              RowBox[{"(", 
+               RowBox[{"xm", "-", "x"}], ")"}]}]}], ",", 
+            RowBox[{"x", "\[LessEqual]", " ", "xm"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"ym", "*", 
+             RowBox[{"Exp", "[", 
+              RowBox[{
+               RowBox[{"-", "ke"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"x", "-", "xm"}], ")"}]}], "]"}]}], ",", 
+            RowBox[{"x", ">", " ", "xm"}]}], "}"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "calculate", " ", "the", " ", "drug", " ", "concentration", " ", "and",
+         " ", "drug", " ", "efficacy", " ", "of", " ", "each", " ", 
+        "parasite", " ", "stage", 
+        RowBox[{"(", 
+         RowBox[{"Ring", ",", 
+          RowBox[{"Trophozoite", " ", "and", " ", "Schizont"}]}], ")"}]}], 
+       "*)"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ConcMod", "[", 
+        RowBox[{
+        "xm_", ",", "ym_", ",", "a_", ",", "ke_", ",", "everyH_Integer", ",", 
+         "Ndrug_Integer", ",", "gamma_List", ",", "ec50_List", ",", 
+         "emin_List", ",", "emax_List"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{"j", "=", "0"}], ",", 
+           RowBox[{"nd", "=", "1"}], ",", "dat", ",", "maxpoint", ",", 
+           "part1", ",", "part2", ",", "fitke", ",", "modka", ",", "modke", 
+           ",", "fn", ",", "x", ",", "endtime", ",", "t", ",", 
+           RowBox[{"conc", "=", "0"}], ",", 
+           RowBox[{"concls", "=", 
+            RowBox[{"{", "}"}]}], ",", 
+           RowBox[{"TIMEMAX", "=", "1000"}]}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"i", "=", "0"}], ",", 
+            RowBox[{"i", "<", 
+             RowBox[{"Ndrug", "*", "everyH"}]}], ",", 
+            RowBox[{"i", "=", 
+             RowBox[{"i", "+", "1"}]}], ",", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{"j", "\[NotEqual]", "everyH"}], ",", 
+               RowBox[{
+                RowBox[{"conc", "=", 
+                 RowBox[{
+                  RowBox[{"genpoints", "[", 
+                   RowBox[{"xm", ",", "ym", ",", "ke", ",", "x"}], "]"}], "/.", 
+                  RowBox[{"x", "\[Rule]", "j"}]}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"AppendTo", "[", 
+                 RowBox[{"concls", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "conc", ",", 
+                    RowBox[{"Eff", "[", 
+                    RowBox[{"conc", ",", 
+                    RowBox[{"gamma", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"ec50", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"emin", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"emax", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"Eff", "[", 
+                    RowBox[{"conc", ",", 
+                    RowBox[{"gamma", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"ec50", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"emin", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"emax", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"Eff", "[", 
+                    RowBox[{"conc", ",", 
+                    RowBox[{"gamma", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"ec50", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"emin", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"emax", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}], "}"}]}], "]"}],
+                 ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+             "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"j", "\[Equal]", "everyH"}], "&&", 
+                RowBox[{"nd", "<", "Ndrug"}]}], ",", 
+               RowBox[{
+                RowBox[{"nd", "=", 
+                 RowBox[{"nd", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+                RowBox[{"conc", "=", 
+                 RowBox[{
+                  RowBox[{"conc", "+", 
+                   RowBox[{"genpoints", "[", 
+                    RowBox[{"xm", ",", "ym", ",", "ke", ",", "x"}], "]"}]}], "/.", 
+                  RowBox[{"x", "\[Rule]", "j"}]}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"AppendTo", "[", 
+                 RowBox[{"concls", ",", 
+                  RowBox[{"{", 
+                   RowBox[{"i", ",", "conc", ",", 
+                    RowBox[{"Eff", "[", 
+                    RowBox[{"conc", ",", 
+                    RowBox[{"gamma", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"ec50", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"emin", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                    RowBox[{"emax", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"Eff", "[", 
+                    RowBox[{"conc", ",", 
+                    RowBox[{"gamma", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"ec50", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"emin", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                    RowBox[{"emax", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"Eff", "[", 
+                    RowBox[{"conc", ",", 
+                    RowBox[{"gamma", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"ec50", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"emin", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                    RowBox[{"emax", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}], "}"}]}], "]"}],
+                 ";", "\[IndentingNewLine]", 
+                RowBox[{"j", "=", "0"}], ";"}]}], "]"}], ";", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{"update", " ", "ndrug"}], "*)"}], "\[IndentingNewLine]", 
+             RowBox[{"j", "=", 
+              RowBox[{"j", "+", "1"}]}], ";"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"i", "=", 
+              RowBox[{"Ndrug", "*", "everyH"}]}], ";", 
+             RowBox[{"j", "=", "everyH"}]}], ",", 
+            RowBox[{"i", "\[LessEqual]", "TIMEMAX"}], ",", 
+            RowBox[{"i", "=", 
+             RowBox[{"i", "+", "1"}]}], ",", 
+            RowBox[{
+             RowBox[{"conc", "=", 
+              RowBox[{
+               RowBox[{"genpoints", "[", 
+                RowBox[{"xm", ",", "ym", ",", "ke", ",", "x"}], "]"}], "/.", 
+               RowBox[{"x", "\[Rule]", "j"}]}]}], ";", "\[IndentingNewLine]", 
+             
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"concls", ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "conc", ",", 
+                 RowBox[{"Eff", "[", 
+                  RowBox[{"conc", ",", 
+                   RowBox[{"gamma", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                   RowBox[{"ec50", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                   RowBox[{"emin", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], ",", 
+                   RowBox[{"emax", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"Eff", "[", 
+                  RowBox[{"conc", ",", 
+                   RowBox[{"gamma", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                   RowBox[{"ec50", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                   RowBox[{"emin", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], ",", 
+                   RowBox[{"emax", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"Eff", "[", 
+                  RowBox[{"conc", ",", 
+                   RowBox[{"gamma", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                   RowBox[{"ec50", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                   RowBox[{"emin", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], ",", 
+                   RowBox[{"emax", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], "]"}]}], "}"}]}], "]"}],
+              ";", "\[IndentingNewLine]", 
+             RowBox[{"j", "=", 
+              RowBox[{"j", "+", "1"}]}], ";"}]}], "]"}], ";", 
+          "\[IndentingNewLine]", "concls"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{
+       "age", " ", "distribution", " ", "of", " ", "parasites", " ", "on", 
+        " ", "admission"}], " ", "*)"}], 
+      RowBox[{
+       RowBox[{"DistributeN", "[", 
+        RowBox[{"initN_", ",", "LC_Integer", ",", "mu_", ",", "sigma_"}], 
+        "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"distr", ",", "x"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"distr", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"PDF", "[", 
+               RowBox[{
+                RowBox[{"NormalDistribution", "[", 
+                 RowBox[{"mu", ",", "sigma"}], "]"}], ",", "x"}], "]"}], "//",
+               "N"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"x", ",", "1", ",", "LC"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"initN", "/", 
+             RowBox[{"Total", "[", "distr", "]"}]}], ")"}], "*", 
+           "distr"}]}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{
+       "shift", " ", "the", " ", "list", " ", "of", " ", "number", " ", "to", 
+        " ", "the", " ", "right", " ", "with", " ", "a", " ", 
+        "multiplication", " ", "pmr"}], "*)"}], 
+      RowBox[{
+       RowBox[{"Shiftonehour", "[", 
+        RowBox[{"ls_List", ",", "PMR_Integer"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", "tmp", "}"}], ",", 
+         RowBox[{
+          RowBox[{"tmp", "=", "ls"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"tmp", "=", 
+           RowBox[{"RotateRight", "[", "tmp", "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"tmp", "=", 
+           RowBox[{"ReplacePart", "[", 
+            RowBox[{"tmp", ",", 
+             RowBox[{"1", "\[Rule]", 
+              RowBox[{
+               RowBox[{"tmp", "[", 
+                RowBox[{"[", "1", "]"}], "]"}], "*", "PMR"}]}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", "tmp"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Eff", "[", 
+        RowBox[{
+        "c_", ",", "gamma_", ",", "ec50_", ",", "emin_", ",", "emax_"}], 
+        "]"}], ":=", 
+       RowBox[{"emin", "+", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"emax", "-", "emin"}], ")"}], "*", 
+         RowBox[{
+          RowBox[{"c", "^", "gamma"}], "/", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"c", "^", "gamma"}], "+", 
+            RowBox[{"ec50", "^", "gamma"}]}], ")"}]}]}]}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Ki", "[", 
+        RowBox[{"T_Real", ",", "concls_List"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"i", ",", "lsk"}], "}"}], ",", 
+         RowBox[{
+          RowBox[{"lsk", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"1", "/", "T"}], " ", 
+                RowBox[{"Log", "[", 
+                 RowBox[{"100.", "/", 
+                  RowBox[{"(", 
+                   RowBox[{"100.", "-", 
+                    RowBox[{"concls", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "3"}], "]"}], "]"}]}], ")"}]}], "]"}]}],
+                ",", 
+               RowBox[{
+                RowBox[{"1", "/", "T"}], " ", 
+                RowBox[{"Log", "[", 
+                 RowBox[{"100.", "/", 
+                  RowBox[{"(", 
+                   RowBox[{"100.", "-", 
+                    RowBox[{"concls", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "4"}], "]"}], "]"}]}], ")"}]}], "]"}]}],
+                ",", 
+               RowBox[{
+                RowBox[{"1", "/", "T"}], " ", 
+                RowBox[{"Log", "[", 
+                 RowBox[{"100.", "/", 
+                  RowBox[{"(", 
+                   RowBox[{"100.", "-", 
+                    RowBox[{"concls", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "5"}], "]"}], "]"}]}], ")"}]}], 
+                 "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", 
+               RowBox[{"Length", "[", "concls", "]"}]}], "}"}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", "lsk"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"(*", 
+       RowBox[{"decay", " ", "function"}], "*)"}], "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Fdecay", "[", 
+        RowBox[{
+        "ages_", ",", "lst_", ",", "attime_", ",", "lsk_", ",", "stages_"}], 
+        "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"tmp", ",", "i"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"i", "=", "ages"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"tmp", "=", 
+           RowBox[{"lst", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"stages", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "\[Equal]", "1"}], ",", 
+            RowBox[{"tmp", "=", 
+             RowBox[{
+              RowBox[{"lst", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{"-", 
+                RowBox[{"lsk", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"attime", ",", "1"}], "]"}], "]"}]}], "]"}]}]}]}], 
+           "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"stages", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "\[Equal]", "2"}], ",", 
+            RowBox[{"tmp", "=", 
+             RowBox[{
+              RowBox[{"lst", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{"-", 
+                RowBox[{"lsk", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"attime", ",", "2"}], "]"}], "]"}]}], "]"}]}]}]}], 
+           "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"stages", "[", 
+              RowBox[{"[", "i", "]"}], "]"}], "\[Equal]", "3"}], ",", 
+            RowBox[{"tmp", "=", 
+             RowBox[{
+              RowBox[{"lst", "[", 
+               RowBox[{"[", "i", "]"}], "]"}], "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{"-", 
+                RowBox[{"lsk", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"attime", ",", "3"}], "]"}], "]"}]}], "]"}]}]}]}], 
+           "]"}], ";", "\[IndentingNewLine]", "tmp"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"WhichRTS", "[", 
+        RowBox[{"lst_List", ",", "KZ_List"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"i", ",", "tmp"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"tmp", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{"0", ",", 
+             RowBox[{"{", 
+              RowBox[{"Length", "[", "lst", "]"}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"For", "[", 
+           RowBox[{
+            RowBox[{"i", "=", "1"}], ",", 
+            RowBox[{"i", "\[LessEqual]", 
+             RowBox[{"Length", "[", "lst", "]"}]}], ",", 
+            RowBox[{"i", "=", 
+             RowBox[{"i", "+", "1"}]}], ",", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"IntervalMemberQ", "[", 
+                 RowBox[{
+                  RowBox[{"Interval", "[", 
+                   RowBox[{"KZ", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ",", "i"}], "]"}], 
+                "\[Equal]", "True"}], ",", 
+               RowBox[{
+                RowBox[{"tmp", "=", 
+                 RowBox[{"ReplacePart", "[", 
+                  RowBox[{"tmp", ",", 
+                   RowBox[{"i", "\[Rule]", "1"}]}], "]"}]}], ";"}]}], "]"}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"IntervalMemberQ", "[", 
+                 RowBox[{
+                  RowBox[{"Interval", "[", 
+                   RowBox[{"KZ", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], "]"}], ",", "i"}], "]"}], 
+                "\[Equal]", "True"}], ",", 
+               RowBox[{
+                RowBox[{"tmp", "=", 
+                 RowBox[{"ReplacePart", "[", 
+                  RowBox[{"tmp", ",", 
+                   RowBox[{"i", "\[Rule]", "2"}]}], "]"}]}], ";"}]}], "]"}], 
+             ";", "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"IntervalMemberQ", "[", 
+                 RowBox[{
+                  RowBox[{"Interval", "[", 
+                   RowBox[{"KZ", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], "]"}], ",", "i"}], "]"}], 
+                "\[Equal]", "True"}], ",", 
+               RowBox[{
+                RowBox[{"tmp", "=", 
+                 RowBox[{"ReplacePart", "[", 
+                  RowBox[{"tmp", ",", 
+                   RowBox[{"i", "\[Rule]", "3"}]}], "]"}]}], ";"}]}], "]"}], 
+             ";"}]}], "]"}], ";", "\[IndentingNewLine]", "tmp"}]}], "]"}]}], 
+      ";", "\n", "\[IndentingNewLine]", 
+      RowBox[{"(*", " ", 
+       RowBox[{"sequestration", " ", "function"}], " ", "*)"}], 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"PRingFunc", "[", 
+        RowBox[{"i_Integer", ",", "a1_Integer", ",", "a2_Integer"}], "]"}], ":=", 
+       RowBox[{"Piecewise", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            RowBox[{"i", "<", "a1"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"Exp", "[", 
+             RowBox[{
+              RowBox[{"Log", "[", "0.5", "]"}], "*", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"i", "-", "a1"}], ")"}], "/", 
+               RowBox[{"(", 
+                RowBox[{"a2", "-", "a1"}], ")"}]}]}], "]"}], ",", 
+            RowBox[{"i", "\[GreaterEqual]", "a1"}]}], "}"}]}], "}"}], "]"}]}],
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"LsDot", "[", 
+        RowBox[{"ls1_List", ",", "ls2_List"}], "]"}], ":=", 
+       RowBox[{"ls1", "*", "ls2"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ParasiteDynamics", "[", 
+        RowBox[{
+        "initN_", ",", "PMR_Integer", ",", "mu_", ",", "sigma_", ",", 
+         "hours_Integer", ",", "KZ_List", ",", "concdat_List", ",", 
+         "everyH_Integer", ",", "Ndrug_Integer", ",", "gamma_List", ",", 
+         "ec50_List", ",", "emin_List", ",", "emax_List", ",", "T_Real", ",", 
+         "runMax_Integer"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"runs", "=", "True"}], ",", "stages", ",", "concls", ",", 
+           "i", ",", "j", ",", "lst", ",", "lsk", ",", 
+           RowBox[{"output", "=", 
+            RowBox[{"{", "}"}]}], ",", "xm", ",", "ym", ",", "a", ",", "ke", 
+           ",", "junk", ",", "onlyring", ",", "tot"}], "}"}], ",", 
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+         RowBox[{"(*", 
+          RowBox[{
+          "template", " ", "of", " ", "the", " ", "drug", " ", "and", " ", 
+           "its", " ", "effects"}], "*)"}], "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"xm", "=", 
+           RowBox[{"concdat", "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ym", "=", 
+           RowBox[{"concdat", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"a", "=", 
+           RowBox[{"concdat", "[", 
+            RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ke", "=", 
+           RowBox[{"concdat", "[", 
+            RowBox[{"[", "4", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"concls", "=", 
+           RowBox[{"ConcMod", "[", 
+            RowBox[{
+            "xm", ",", "ym", ",", "a", ",", "ke", ",", "everyH", ",", "Ndrug",
+              ",", "gamma", ",", "ec50", ",", "emin", ",", "emax"}], "]"}]}], 
+          ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"k_i", " ", 
+            RowBox[{"(", "t", ")"}]}], "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"lsk", "=", 
+           RowBox[{"Ki", "[", 
+            RowBox[{"T", ",", "concls"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"initial", " ", "parasite", " ", "load"}], "*)"}], 
+          "\[IndentingNewLine]", 
+          RowBox[{"lst", "=", 
+           RowBox[{"DistributeN", "[", 
+            RowBox[{"initN", ",", "hours", ",", "mu", ",", "sigma"}], "]"}]}],
+           ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"stages", "=", 
+           RowBox[{"WhichRTS", "[", 
+            RowBox[{"lst", ",", "KZ"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"AppendTo", "[", 
+           RowBox[{"output", ",", "lst"}], "]"}], ";", "\[IndentingNewLine]", 
+          
+          RowBox[{"i", "=", "0"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"runs", "\[Equal]", "True"}], "&&", 
+             RowBox[{"i", "<", "runMax"}]}], ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"i", "=", 
+              RowBox[{"i", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{"Parasites", " ", "are", " ", 
+               RowBox[{"growing", ".", "Feed"}], " ", 
+               RowBox[{"them", "!"}]}], "*)"}], "\[IndentingNewLine]", 
+             RowBox[{"lst", "=", 
+              RowBox[{"Shiftonehour", "[", 
+               RowBox[{"lst", ",", "PMR"}], "]"}]}], ";", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{"a", " ", "time", " ", "to", " ", 
+               RowBox[{"kill", "."}]}], "*)"}], "\[IndentingNewLine]", 
+             RowBox[{"For", "[", 
+              RowBox[{
+               RowBox[{"j", "=", "1"}], ",", 
+               RowBox[{"j", "\[LessEqual]", 
+                RowBox[{"Length", "[", "lst", "]"}]}], ",", 
+               RowBox[{"j", "=", 
+                RowBox[{"j", "+", "1"}]}], ",", 
+               RowBox[{
+                RowBox[{"lst", "=", 
+                 RowBox[{"ReplacePart", "[", 
+                  RowBox[{"lst", ",", 
+                   RowBox[{"j", "\[Rule]", 
+                    RowBox[{"Fdecay", "[", 
+                    RowBox[{
+                    "j", ",", "lst", ",", "i", ",", "lsk", ",", "stages"}], 
+                    "]"}]}]}], "]"}]}], ";"}]}], "]"}], ";", 
+             "\[IndentingNewLine]", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+              "adding", " ", "a", " ", "point", " ", "for", " ", "ploting"}], 
+              "*)"}], "\[IndentingNewLine]", 
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"output", ",", "lst"}], "]"}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{"*", "non", " ", "sequestered", " ", "parasites"}], 
+           "**)"}], "\[IndentingNewLine]", 
+          RowBox[{"junk", "=", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"LsDot", "[", 
+              RowBox[{"#", ",", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"PRingFunc", "[", 
+                  RowBox[{"i", ",", "11", ",", "14"}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "1", ",", "hours"}], "}"}]}], "]"}]}], 
+              "]"}], "&"}], "/@", "output"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"onlyring", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"i", "-", "1"}], ",", 
+               RowBox[{"Log10", "[", 
+                RowBox[{
+                 RowBox[{"junk", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "//", "Total"}], "]"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", 
+               RowBox[{"Length", "[", "junk", "]"}]}], "}"}]}], "]"}]}], ";", 
+          "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"(*", 
+           RowBox[{
+           "total", " ", "of", " ", "parasites", " ", "over", " ", "time"}], 
+           "*)"}], "\[IndentingNewLine]", 
+          RowBox[{"tot", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"i", "-", "1"}], ",", 
+               RowBox[{"Log10", "@", 
+                RowBox[{"Total", "[", 
+                 RowBox[{"output", "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "]"}]}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", 
+               RowBox[{"Length", "[", "output", "]"}]}], "}"}]}], "]"}]}], 
+          ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{"onlyring", ",", "tot"}], "}"}]}]}], "\[IndentingNewLine]",
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ParaDist", "[", 
+        RowBox[{"initN_", ",", "LC_", ",", "mu_", ",", "sigma_"}], "]"}], ":=",
+        "\[IndentingNewLine]", 
+       RowBox[{"ListLogPlot", "[", 
+        RowBox[{
+         RowBox[{"DistributeN", "[", 
+          RowBox[{"initN", ",", "LC", ",", "mu", ",", "sigma"}], "]"}], ",", 
+         RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"350", ",", "150"}], "}"}]}], ",", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"True", ",", "True", ",", "False", ",", "False"}], "}"}]}],
+          ",", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<age of parasites (h)\>\"", ",", 
+            "\"\<number of parasites\>\""}], "}"}]}], ",", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", "Orange", "}"}]}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"DHAGraph", "[", 
+        RowBox[{"xm_", ",", "ym_", ",", "a_", ",", "ke_"}], "]"}], ":=", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"points", ",", "t"}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"points", "=", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"t", ",", 
+               RowBox[{"genpoints", "[", 
+                RowBox[{"xm", ",", "ym", ",", "ke", ",", "t"}], "]"}]}], 
+              "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"t", ",", "0", ",", "20", ",", "0.1"}], "}"}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"ListPlot", "[", 
+           RowBox[{"points", ",", 
+            RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+            RowBox[{"Frame", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"True", ",", "True", ",", "False", ",", "False"}], 
+              "}"}]}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<time (h)\>\"", ",", "\"\<DHA concentration (ng/ml)\>\""}], 
+              "}"}]}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"Red", ",", "Thick"}], "}"}]}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"350", ",", "150"}], "}"}]}]}], "]"}]}]}], 
+        "\[IndentingNewLine]", "]"}]}], ";", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ParaGraph", "[", 
+        RowBox[{
+        "initN_", ",", "PMR_Integer", ",", "mu_", ",", "sigma_", ",", 
+         "hours_Integer", ",", "KZ_List", ",", "concdat_List", ",", 
+         "everyH_Integer", ",", "Ndrug_Integer", ",", "gamma_List", ",", 
+         "ec50_List", ",", "emin_List", ",", "emax_List", ",", "T_Real", ",", 
+         "runMax_Integer"}], "]"}], ":=", 
+       RowBox[{"ListPlot", "[", 
+        RowBox[{
+         RowBox[{"ParasiteDynamics", "[", 
+          RowBox[{
+          "initN", ",", "PMR", ",", "mu", ",", "sigma", ",", "hours", ",", 
+           "KZ", ",", "concdat", ",", "everyH", ",", "Ndrug", ",", "gamma", 
+           ",", "ec50", ",", "emin", ",", "emax", ",", "T", ",", "runMax"}], 
+          "]"}], ",", 
+         RowBox[{"Frame", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"True", ",", "True", ",", "False", ",", "False"}], "}"}]}],
+          ",", "\[IndentingNewLine]", 
+         RowBox[{"FrameLabel", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<time (h)\>\"", ",", "\"\<# of parasites (log 10)\>\""}], 
+           "}"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Joined", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"True", ",", "True"}], "}"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"ImageSize", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"350", ",", "160"}], "}"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"PlotStyle", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Thick"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"Gray", ",", "Thick", ",", "Dashed"}], "}"}]}], "}"}]}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{"PlotRange", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"0", ",", "125"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"0", ",", "13"}], "}"}]}], "}"}]}], ",", 
+         RowBox[{"PlotLegends`PlotLegend", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Circulating\>\"", ",", 
+            "\"\<Circulating +\\n Sequestered\>\""}], "}"}]}], ",", " ", 
+         RowBox[{"PlotLegends`LegendPosition", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{"0", ",", "0.15"}], "}"}]}], ",", 
+         RowBox[{"PlotLegends`LegendBorder", "\[Rule]", "None"}], ",", 
+         RowBox[{"PlotLegends`LegendShadow", "\[Rule]", "None"}]}], "]"}]}]}],
+      "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",\
+
+ CellChangeTimes->{{3.521814610463867*^9, 3.521814633495117*^9}, 
+   3.521814721448242*^9, {3.521815588508789*^9, 3.521815589836914*^9}, {
+   3.521815741586914*^9, 3.521815761633789*^9}, {3.521815913774414*^9, 
+   3.521815978133789*^9}, {3.521816008180664*^9, 3.521816016352539*^9}, {
+   3.521816060383789*^9, 3.521816060899414*^9}, {3.521816140524414*^9, 
+   3.521816237196289*^9}, {3.5218168158847656`*^9, 3.5218168756503906`*^9}, {
+   3.5218170158847656`*^9, 3.5218170206191406`*^9}, {3.521850502575093*^9, 
+   3.521850506629501*^9}, 3.5218506204837623`*^9, {3.5218507676864147`*^9, 
+   3.5218508184888077`*^9}, 3.521851156368944*^9, {3.521851248818699*^9, 
+   3.521851255690135*^9}, 3.521851394274506*^9, 3.5218517906271124`*^9, {
+   3.5218519341644073`*^9, 3.5218519447307663`*^9}, 3.5218520313967266`*^9, {
+   3.5218521190756865`*^9, 3.521852141252572*^9}, {3.521852521568799*^9, 
+   3.521852535902359*^9}, {3.5218535908153267`*^9, 3.5218535915181456`*^9}, 
+   3.521853655802657*^9, {3.5218538521634035`*^9, 3.5218539061423216`*^9}, {
+   3.521853939113819*^9, 3.5218539547171*^9}, {3.5218551393539295`*^9, 
+   3.5218551757937613`*^9}, {3.5218559840219355`*^9, 3.52185599298816*^9}, {
+   3.5218580506908875`*^9, 3.5218580623863554`*^9}, {3.521858957745637*^9, 
+   3.521858958104986*^9}, {3.5218590585354156`*^9, 3.5218590932162485`*^9}, {
+   3.5218592290460606`*^9, 3.521859232123516*^9}, {3.5218592874396014`*^9, 
+   3.5218592901733813`*^9}, {3.5218593790439167`*^9, 
+   3.5218594350601053`*^9}, {3.521859506462782*^9, 3.5218595101805325`*^9}, {
+   3.521859714733941*^9, 3.5218597459749413`*^9}, {3.5218599696163044`*^9, 
+   3.5218599726799607`*^9}, {3.5218600796265783`*^9, 
+   3.5218600838625526`*^9}, {3.5218602082584233`*^9, 
+   3.5218602317581224`*^9}, {3.521860266507678*^9, 3.52186027182011*^9}, {
+   3.5218603313818474`*^9, 3.5218603529596963`*^9}, {3.5218604016934013`*^9, 
+   3.5218604395154743`*^9}, {3.5218604785561013`*^9, 
+   3.5218604947566338`*^9}, {3.5218618089121833`*^9, 
+   3.5218618118021235`*^9}, {3.521861846309575*^9, 3.521861847434309*^9}, {
+   3.5218666959314156`*^9, 3.5218667037122173`*^9}, {3.5218696842010365`*^9, 
+   3.5218697139159822`*^9}, {3.5225885927290363`*^9, 
+   3.5225886658270035`*^9}, {3.5225887689125414`*^9, 
+   3.5225888025381775`*^9}, {3.522588855581661*^9, 3.5225889050967016`*^9}, 
+   3.522588987805971*^9, {3.522589794074269*^9, 3.5225898349583673`*^9}, {
+   3.522589911020091*^9, 3.5225900463248568`*^9}, {3.522590095907898*^9, 
+   3.52259024471294*^9}, {3.522590454039917*^9, 3.522590512270667*^9}, {
+   3.5225906305241957`*^9, 3.522590666987865*^9}, {3.5225907594716854`*^9, 
+   3.5225907653793616`*^9}, {3.5225909433684807`*^9, 
+   3.5225909554136376`*^9}, {3.5225909962575645`*^9, 3.522591299979309*^9}, {
+   3.5225913499745607`*^9, 3.5225913565922456`*^9}, {3.52259151362926*^9, 
+   3.522591550895005*^9}, {3.522591590435796*^9, 3.5225917661993113`*^9}, {
+   3.522591810930206*^9, 3.52259181264524*^9}, {3.5225918771565304`*^9, 
+   3.5225920535568085`*^9}, {3.5225921478662386`*^9, 3.522592160103462*^9}, {
+   3.52259226979543*^9, 3.5225922708295336`*^9}, 3.522783581814267*^9, 
+   3.522783707470009*^9, {3.522783740534132*^9, 3.522783761968639*^9}, {
+   3.5227838196343107`*^9, 3.522783824017214*^9}, {3.522783875419714*^9, 
+   3.522783918286809*^9}, {3.522783962304118*^9, 3.522783992159997*^9}, {
+   3.5227840443010693`*^9, 3.522784066209971*^9}, {3.52278409700589*^9, 
+   3.5227841175065527`*^9}, {3.5227841699222193`*^9, 3.5227841924338083`*^9}, 
+   3.5231163564672813`*^9, {3.523193370198997*^9, 3.523193382878973*^9}, 
+   3.523193435811648*^9, 3.5231935366959743`*^9, {3.5231938435344143`*^9, 
+   3.523193863063923*^9}, 3.5231940525337553`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`ctrl$$ = 1, $CellContext`ec50R$$ = 
+    20.5, $CellContext`ec50S$$ = 20.5, $CellContext`ec50T$$ = 
+    20.5, $CellContext`emaxR$$ = 99.99, $CellContext`emaxS$$ = 
+    99.99, $CellContext`emaxT$$ = 99.99, $CellContext`everyH$$ = 
+    24, $CellContext`initN$$ = 2.8*^11, $CellContext`ke$$ = 
+    0.5, $CellContext`KZRB$$ = 6, $CellContext`KZRE$$ = 
+    26, $CellContext`KZSE$$ = 44, $CellContext`KZTE$$ = 
+    38, $CellContext`Ndrug$$ = 7, $CellContext`PMR$$ = 7, $CellContext`T$$ = 
+    5., $CellContext`xm$$ = 2, $CellContext`ym$$ = 
+    1000, $CellContext`\[Gamma]R$$ = 6.5, $CellContext`\[Gamma]S$$ = 
+    6.5, $CellContext`\[Gamma]T$$ = 6.5, $CellContext`\[Mu]$$ = 
+    10, $CellContext`\[Sigma]$$ = 4, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`ctrl$$], 1, ""}, {
+      1 -> "parasite distribution", 2 -> "dose regimen", 3 -> 
+       "DHA concentration", 4 -> "kill zones", 5 -> "killing effect"}}, {{
+       Hold[$CellContext`initN$$], 2.8*^11, ""}, 1.*^11, 1000000000000, 
+      5.*^10}, {{
+       Hold[$CellContext`PMR$$], 7, ""}, 6, 32, 1}, {{
+       Hold[$CellContext`\[Mu]$$], 10, ""}, 1, 48, 1}, {{
+       Hold[$CellContext`\[Sigma]$$], 4, ""}, 1, 50, 1}, {{
+       Hold[$CellContext`Ndrug$$], 7, ""}, 1, 24, 1}, {{
+       Hold[$CellContext`everyH$$], 24, ""}, 1, 48, 1}, {{
+       Hold[$CellContext`xm$$], 2, ""}, 1, 20}, {{
+       Hold[$CellContext`ym$$], 1000, ""}, 0.5, 2000.}, {{
+       Hold[$CellContext`ke$$], 0.5, ""}, 0.001, 10}, {{
+       Hold[$CellContext`KZRB$$], 6, ""}, 1, 96, 1}, {{
+       Hold[$CellContext`KZRE$$], 26, ""}, 
+      Dynamic[$CellContext`KZRB$$], 60, 1}, {{
+       Hold[$CellContext`KZTE$$], 38, ""}, 
+      Dynamic[$CellContext`KZRE$$ + 1], 90, 1}, {{
+       Hold[$CellContext`KZSE$$], 44, ""}, 
+      Dynamic[$CellContext`KZTE$$ + 1], 100, 1}, {{
+       Hold[$CellContext`\[Gamma]R$$], 6.5}, 0.5, 10, 0.001}, {{
+       Hold[$CellContext`\[Gamma]T$$], 6.5}, 0.5, 10, 0.001}, {{
+       Hold[$CellContext`\[Gamma]S$$], 6.5}, 0.5, 10, 0.001}, {{
+       Hold[$CellContext`ec50R$$], 20.5, ""}, 0.001, 100, 0.001}, {{
+       Hold[$CellContext`ec50T$$], 20.5, ""}, 0.001, 100, 0.001}, {{
+       Hold[$CellContext`ec50S$$], 20.5, ""}, 0.001, 100, 0.001}, {{
+       Hold[$CellContext`emaxR$$], 99.99, ""}, 50, 99.999, 0.001}, {{
+       Hold[$CellContext`emaxT$$], 99.99, ""}, 50, 99.999, 0.001}, {{
+       Hold[$CellContext`emaxS$$], 99.99, ""}, 50, 99.999, 0.001}, {{
+       Hold[$CellContext`T$$], 5., ""}, 1., 10., 0.001}, {
+      Hold[
+       PaneSelector[{1 -> Column[{
+            Style["Parasite distribution on admission", Bold], 
+            "initial number of parasites", 
+            Manipulate`Place[1], "parasite multiplication rate (/48 hours)", 
+            Manipulate`Place[2], "mean age of parasite (hours)", 
+            Manipulate`Place[3], 
+            "standard deviation of parasite ages (hours)", 
+            Manipulate`Place[4]}], 2 -> Column[{
+            Style["Dose regimen", Bold], "number of doses", 
+            Manipulate`Place[5], "dosing interval (hours)", 
+            Manipulate`Place[6]}], 3 -> Column[{
+            Style["DHA concentration profile (for each dose)", Bold], 
+            "time at max concentration (hours)", 
+            Manipulate`Place[7], "max concentration (ng/ml)", 
+            Manipulate`Place[8], "elimination rate (/hours)", 
+            Manipulate`Place[9]}], 4 -> Column[{
+            Style["Kill zones (sensitive ages) ", Bold], 
+            "ring: begin kill zone (hours)", 
+            Manipulate`Place[10], "ring: end kill zone (hours)", 
+            Manipulate`Place[11], "trophozoite: end kill zone (hours)", 
+            Manipulate`Place[12], "schizont: end kill zone (hours)", 
+            Manipulate`Place[13]}], 5 -> Column[{
+            Style["Killing effect parameters", Bold], 
+            Manipulate`Place[14], 
+            Manipulate`Place[15], 
+            Manipulate`Place[16], "EC50 ring (ng/ml)", 
+            Manipulate`Place[17], "EC50 trophozoites (ng/ml)", 
+            Manipulate`Place[18], "EC50 schizont (ng/ml)", 
+            Manipulate`Place[19], "ring: max efficacy (%)", 
+            Manipulate`Place[20], "trophozoite: max efficacy (%)", 
+            Manipulate`Place[21], "schizont: max efficacy (%)", 
+            Manipulate`Place[22], "1/alpha", 
+            Manipulate`Place[23]}]}, 
+        Dynamic[$CellContext`ctrl$$]]], Manipulate`Dump`ThisIsNotAControl}}, 
+    Typeset`size$$ = Automatic, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`ctrl$226590$$ = 
+    False, $CellContext`initN$226591$$ = 0, $CellContext`PMR$226592$$ = 
+    0, $CellContext`\[Mu]$226593$$ = 0, $CellContext`\[Sigma]$226594$$ = 
+    0, $CellContext`Ndrug$226595$$ = 0, $CellContext`everyH$226596$$ = 
+    0, $CellContext`xm$226597$$ = 0, $CellContext`ym$226598$$ = 
+    0, $CellContext`ke$226599$$ = 0, $CellContext`KZRB$226600$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`ctrl$$ = 1, $CellContext`ec50R$$ = 
+        20.5, $CellContext`ec50S$$ = 20.5, $CellContext`ec50T$$ = 
+        20.5, $CellContext`emaxR$$ = 99.99, $CellContext`emaxS$$ = 
+        99.99, $CellContext`emaxT$$ = 99.99, $CellContext`everyH$$ = 
+        24, $CellContext`initN$$ = 2.8*^11, $CellContext`ke$$ = 
+        0.5, $CellContext`KZRB$$ = 6, $CellContext`KZRE$$ = 
+        26, $CellContext`KZSE$$ = 44, $CellContext`KZTE$$ = 
+        38, $CellContext`Ndrug$$ = 7, $CellContext`PMR$$ = 
+        7, $CellContext`T$$ = 5., $CellContext`xm$$ = 2, $CellContext`ym$$ = 
+        1000, $CellContext`\[Gamma]R$$ = 6.5, $CellContext`\[Gamma]S$$ = 
+        6.5, $CellContext`\[Gamma]T$$ = 6.5, $CellContext`\[Mu]$$ = 
+        10, $CellContext`\[Sigma]$$ = 4}, "ControllerVariables" :> {
+        Hold[$CellContext`ctrl$$, $CellContext`ctrl$226590$$, False], 
+        Hold[$CellContext`initN$$, $CellContext`initN$226591$$, 0], 
+        Hold[$CellContext`PMR$$, $CellContext`PMR$226592$$, 0], 
+        Hold[$CellContext`\[Mu]$$, $CellContext`\[Mu]$226593$$, 0], 
+        Hold[$CellContext`\[Sigma]$$, $CellContext`\[Sigma]$226594$$, 0], 
+        Hold[$CellContext`Ndrug$$, $CellContext`Ndrug$226595$$, 0], 
+        Hold[$CellContext`everyH$$, $CellContext`everyH$226596$$, 0], 
+        Hold[$CellContext`xm$$, $CellContext`xm$226597$$, 0], 
+        Hold[$CellContext`ym$$, $CellContext`ym$226598$$, 0], 
+        Hold[$CellContext`ke$$, $CellContext`ke$226599$$, 0], 
+        Hold[$CellContext`KZRB$$, $CellContext`KZRB$226600$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Column[{
+         $CellContext`ParaDist[$CellContext`initN$$, 
+          48, $CellContext`\[Mu]$$, $CellContext`\[Sigma]$$], 
+         $CellContext`DHAGraph[$CellContext`xm$$, $CellContext`ym$$, \
+$CellContext`a, $CellContext`ke$$], 
+         $CellContext`ParaGraph[$CellContext`initN$$, $CellContext`PMR$$, \
+$CellContext`\[Mu]$$, $CellContext`\[Sigma]$$, 
+          48, {{$CellContext`KZRB$$, $CellContext`KZRE$$}, \
+{$CellContext`KZRE$$ + 1, $CellContext`KZTE$$}, {$CellContext`KZTE$$ + 
+            1, $CellContext`KZSE$$}}, {$CellContext`xm$$, $CellContext`ym$$, \
+$CellContext`a, $CellContext`ke$$}, $CellContext`everyH$$, \
+$CellContext`Ndrug$$, {$CellContext`\[Gamma]R$$, $CellContext`\[Gamma]T$$, \
+$CellContext`\[Gamma]S$$}, {$CellContext`ec50R$$, $CellContext`ec50T$$, \
+$CellContext`ec50S$$}, {0., 0., 
+          0.}, {$CellContext`emaxR$$, $CellContext`emaxT$$, \
+$CellContext`emaxS$$}, $CellContext`T$$, 120]}], 
+      "Specifications" :> {{{$CellContext`ctrl$$, 1, ""}, {
+         1 -> "parasite distribution", 2 -> "dose regimen", 3 -> 
+          "DHA concentration", 4 -> "kill zones", 5 -> "killing effect"}, 
+         ControlPlacement -> Top}, {{$CellContext`initN$$, 2.8*^11, ""}, 
+         1.*^11, 1000000000000, 5.*^10, Appearance -> "Labeled", ImageSize -> 
+         Tiny, ControlPlacement -> 1}, {{$CellContext`PMR$$, 7, ""}, 6, 32, 1,
+          Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         2}, {{$CellContext`\[Mu]$$, 10, ""}, 1, 48, 1, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         3}, {{$CellContext`\[Sigma]$$, 4, ""}, 1, 50, 1, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         4}, {{$CellContext`Ndrug$$, 7, ""}, 1, 24, 1, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         5}, {{$CellContext`everyH$$, 24, ""}, 1, 48, 1, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         6}, {{$CellContext`xm$$, 2, ""}, 1, 20, Appearance -> "Labeled", 
+         ImageSize -> Tiny, ControlPlacement -> 
+         7}, {{$CellContext`ym$$, 1000, ""}, 0.5, 2000., Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         8}, {{$CellContext`ke$$, 0.5, ""}, 0.001, 10, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         9}, {{$CellContext`KZRB$$, 6, ""}, 1, 96, 1, Appearance -> "Labeled",
+          ImageSize -> Tiny, ControlPlacement -> 
+         10}, {{$CellContext`KZRE$$, 26, ""}, 
+         Dynamic[$CellContext`KZRB$$], 60, 1, Appearance -> "Labeled", 
+         ImageSize -> Tiny, ControlPlacement -> 
+         11}, {{$CellContext`KZTE$$, 38, ""}, 
+         Dynamic[$CellContext`KZRE$$ + 1], 90, 1, Appearance -> "Labeled", 
+         ImageSize -> Tiny, ControlPlacement -> 
+         12}, {{$CellContext`KZSE$$, 44, ""}, 
+         Dynamic[$CellContext`KZTE$$ + 1], 100, 1, Appearance -> "Labeled", 
+         ImageSize -> Tiny, ControlPlacement -> 
+         13}, {{$CellContext`\[Gamma]R$$, 6.5}, 0.5, 10, 0.001, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         14}, {{$CellContext`\[Gamma]T$$, 6.5}, 0.5, 10, 0.001, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         15}, {{$CellContext`\[Gamma]S$$, 6.5}, 0.5, 10, 0.001, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         16}, {{$CellContext`ec50R$$, 20.5, ""}, 0.001, 100, 0.001, 
+         Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         17}, {{$CellContext`ec50T$$, 20.5, ""}, 0.001, 100, 0.001, 
+         Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         18}, {{$CellContext`ec50S$$, 20.5, ""}, 0.001, 100, 0.001, 
+         Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         19}, {{$CellContext`emaxR$$, 99.99, ""}, 50, 99.999, 0.001, 
+         Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         20}, {{$CellContext`emaxT$$, 99.99, ""}, 50, 99.999, 0.001, 
+         Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         21}, {{$CellContext`emaxS$$, 99.99, ""}, 50, 99.999, 0.001, 
+         Appearance -> "Labeled", ImageSize -> Tiny, ControlPlacement -> 
+         22}, {{$CellContext`T$$, 5., ""}, 1., 10., 0.001, Appearance -> 
+         "Labeled", ImageSize -> Tiny, ControlPlacement -> 23}, 
+        PaneSelector[{1 -> Column[{
+             Style["Parasite distribution on admission", Bold], 
+             "initial number of parasites", 
+             Manipulate`Place[1], "parasite multiplication rate (/48 hours)", 
+             
+             Manipulate`Place[2], "mean age of parasite (hours)", 
+             Manipulate`Place[3], 
+             "standard deviation of parasite ages (hours)", 
+             Manipulate`Place[4]}], 2 -> Column[{
+             Style["Dose regimen", Bold], "number of doses", 
+             Manipulate`Place[5], "dosing interval (hours)", 
+             Manipulate`Place[6]}], 3 -> Column[{
+             Style["DHA concentration profile (for each dose)", Bold], 
+             "time at max concentration (hours)", 
+             Manipulate`Place[7], "max concentration (ng/ml)", 
+             Manipulate`Place[8], "elimination rate (/hours)", 
+             Manipulate`Place[9]}], 4 -> Column[{
+             Style["Kill zones (sensitive ages) ", Bold], 
+             "ring: begin kill zone (hours)", 
+             Manipulate`Place[10], "ring: end kill zone (hours)", 
+             Manipulate`Place[11], "trophozoite: end kill zone (hours)", 
+             Manipulate`Place[12], "schizont: end kill zone (hours)", 
+             Manipulate`Place[13]}], 5 -> Column[{
+             Style["Killing effect parameters", Bold], 
+             Manipulate`Place[14], 
+             Manipulate`Place[15], 
+             Manipulate`Place[16], "EC50 ring (ng/ml)", 
+             Manipulate`Place[17], "EC50 trophozoites (ng/ml)", 
+             Manipulate`Place[18], "EC50 schizont (ng/ml)", 
+             Manipulate`Place[19], "ring: max efficacy (%)", 
+             Manipulate`Place[20], "trophozoite: max efficacy (%)", 
+             Manipulate`Place[21], "schizont: max efficacy (%)", 
+             Manipulate`Place[22], "1/alpha", 
+             Manipulate`Place[23]}]}, 
+         Dynamic[$CellContext`ctrl$$]]}, 
+      "Options" :> {
+       ControlPlacement -> Left, SynchronousInitialization -> False, 
+        ContinuousAction -> False, AutorunSequencing -> {1, 2}}, 
+      "DefaultOptions" :> {ControllerLinking -> True}],
+     ImageSizeCache->{483., {190., 195.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({Get["PlotLegends`"]; $CellContext`genpoints[
+          Pattern[$CellContext`xm, 
+           Blank[]], 
+          Pattern[$CellContext`ym, 
+           Blank[]], 
+          Pattern[$CellContext`ke, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]]] := 
+        Piecewise[{{$CellContext`ym - ($CellContext`ym/$CellContext`xm) \
+($CellContext`xm - $CellContext`x), $CellContext`x <= $CellContext`xm}, \
+{$CellContext`ym 
+            Exp[(-$CellContext`ke) ($CellContext`x - $CellContext`xm)], \
+$CellContext`x > $CellContext`xm}}]; $CellContext`ConcMod[
+          Pattern[$CellContext`xm, 
+           Blank[]], 
+          Pattern[$CellContext`ym, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`ke, 
+           Blank[]], 
+          Pattern[$CellContext`everyH, 
+           Blank[Integer]], 
+          Pattern[$CellContext`Ndrug, 
+           Blank[Integer]], 
+          Pattern[$CellContext`gamma, 
+           Blank[List]], 
+          Pattern[$CellContext`ec50, 
+           Blank[List]], 
+          Pattern[$CellContext`emin, 
+           Blank[List]], 
+          Pattern[$CellContext`emax, 
+           Blank[List]]] := 
+        Module[{$CellContext`i, $CellContext`j = 0, $CellContext`nd = 
+           1, $CellContext`dat, $CellContext`maxpoint, $CellContext`part1, \
+$CellContext`part2, $CellContext`fitke, $CellContext`modka, \
+$CellContext`modke, $CellContext`fn, $CellContext`x, $CellContext`endtime, \
+$CellContext`t, $CellContext`conc = 
+           0, $CellContext`concls = {}, $CellContext`TIMEMAX = 1000}, 
+          For[$CellContext`i = 
+            0, $CellContext`i < $CellContext`Ndrug $CellContext`everyH, \
+$CellContext`i = $CellContext`i + 1, 
+            If[$CellContext`j != $CellContext`everyH, $CellContext`conc = 
+               ReplaceAll[
+                 $CellContext`genpoints[$CellContext`xm, $CellContext`ym, \
+$CellContext`ke, $CellContext`x], $CellContext`x -> $CellContext`j]; 
+              AppendTo[$CellContext`concls, {$CellContext`i, \
+$CellContext`conc, 
+                 $CellContext`Eff[$CellContext`conc, 
+                  Part[$CellContext`gamma, 1], 
+                  Part[$CellContext`ec50, 1], 
+                  Part[$CellContext`emin, 1], 
+                  Part[$CellContext`emax, 1]], 
+                 $CellContext`Eff[$CellContext`conc, 
+                  Part[$CellContext`gamma, 2], 
+                  Part[$CellContext`ec50, 2], 
+                  Part[$CellContext`emin, 2], 
+                  Part[$CellContext`emax, 2]], 
+                 $CellContext`Eff[$CellContext`conc, 
+                  Part[$CellContext`gamma, 3], 
+                  Part[$CellContext`ec50, 3], 
+                  Part[$CellContext`emin, 3], 
+                  Part[$CellContext`emax, 3]]}]; Null]; If[
+              
+              And[$CellContext`j == $CellContext`everyH, $CellContext`nd < \
+$CellContext`Ndrug], $CellContext`nd = $CellContext`nd + 1; $CellContext`conc = 
+               ReplaceAll[$CellContext`conc + \
+$CellContext`genpoints[$CellContext`xm, $CellContext`ym, $CellContext`ke, \
+$CellContext`x], $CellContext`x -> $CellContext`j]; 
+              AppendTo[$CellContext`concls, {$CellContext`i, \
+$CellContext`conc, 
+                 $CellContext`Eff[$CellContext`conc, 
+                  Part[$CellContext`gamma, 1], 
+                  Part[$CellContext`ec50, 1], 
+                  Part[$CellContext`emin, 1], 
+                  Part[$CellContext`emax, 1]], 
+                 $CellContext`Eff[$CellContext`conc, 
+                  Part[$CellContext`gamma, 2], 
+                  Part[$CellContext`ec50, 2], 
+                  Part[$CellContext`emin, 2], 
+                  Part[$CellContext`emax, 2]], 
+                 $CellContext`Eff[$CellContext`conc, 
+                  Part[$CellContext`gamma, 3], 
+                  Part[$CellContext`ec50, 3], 
+                  Part[$CellContext`emin, 3], 
+                  Part[$CellContext`emax, 3]]}]; $CellContext`j = 0; 
+              Null]; $CellContext`j = $CellContext`j + 1; Null]; 
+          For[$CellContext`i = $CellContext`Ndrug $CellContext`everyH; \
+$CellContext`j = $CellContext`everyH, $CellContext`i <= $CellContext`TIMEMAX, \
+$CellContext`i = $CellContext`i + 1, $CellContext`conc = ReplaceAll[
+               $CellContext`genpoints[$CellContext`xm, $CellContext`ym, \
+$CellContext`ke, $CellContext`x], $CellContext`x -> $CellContext`j]; 
+            AppendTo[$CellContext`concls, {$CellContext`i, $CellContext`conc, \
+
+               $CellContext`Eff[$CellContext`conc, 
+                Part[$CellContext`gamma, 1], 
+                Part[$CellContext`ec50, 1], 
+                Part[$CellContext`emin, 1], 
+                Part[$CellContext`emax, 1]], 
+               $CellContext`Eff[$CellContext`conc, 
+                Part[$CellContext`gamma, 2], 
+                Part[$CellContext`ec50, 2], 
+                Part[$CellContext`emin, 2], 
+                Part[$CellContext`emax, 2]], 
+               $CellContext`Eff[$CellContext`conc, 
+                Part[$CellContext`gamma, 3], 
+                Part[$CellContext`ec50, 3], 
+                Part[$CellContext`emin, 3], 
+                
+                Part[$CellContext`emax, 
+                 3]]}]; $CellContext`j = $CellContext`j + 1; 
+            Null]; $CellContext`concls]; $CellContext`DistributeN[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`LC, 
+           Blank[Integer]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]]] := 
+        Module[{$CellContext`distr, $CellContext`x}, $CellContext`distr = 
+           Table[
+             N[
+              PDF[
+               
+               NormalDistribution[$CellContext`mu, $CellContext`sigma], \
+$CellContext`x]], {$CellContext`x, 1, $CellContext`LC}]; ($CellContext`initN/
+            Total[$CellContext`distr]) $CellContext`distr]; \
+$CellContext`Shiftonehour[
+          Pattern[$CellContext`ls, 
+           Blank[List]], 
+          Pattern[$CellContext`PMR, 
+           Blank[Integer]]] := 
+        Module[{$CellContext`tmp}, $CellContext`tmp = $CellContext`ls; \
+$CellContext`tmp = RotateRight[$CellContext`tmp]; $CellContext`tmp = 
+           ReplacePart[$CellContext`tmp, 1 -> 
+             Part[$CellContext`tmp, 
+                1] $CellContext`PMR]; $CellContext`tmp]; $CellContext`Eff[
+          Pattern[$CellContext`c, 
+           Blank[]], 
+          Pattern[$CellContext`gamma, 
+           Blank[]], 
+          Pattern[$CellContext`ec50, 
+           Blank[]], 
+          Pattern[$CellContext`emin, 
+           Blank[]], 
+          Pattern[$CellContext`emax, 
+           
+           Blank[]]] := $CellContext`emin + ($CellContext`emax - \
+$CellContext`emin) \
+($CellContext`c^$CellContext`gamma/($CellContext`c^$CellContext`gamma + \
+$CellContext`ec50^$CellContext`gamma)); $CellContext`Ki[
+          Pattern[$CellContext`T, 
+           Blank[Real]], 
+          Pattern[$CellContext`concls, 
+           Blank[List]]] := 
+        Module[{$CellContext`i, $CellContext`lsk}, $CellContext`lsk = 
+           Table[{(1/$CellContext`T) 
+              Log[100./(100. - 
+                Part[$CellContext`concls, $CellContext`i, 3])], (
+               1/$CellContext`T) 
+              Log[100./(100. - 
+                Part[$CellContext`concls, $CellContext`i, 4])], (
+               1/$CellContext`T) 
+              Log[100./(100. - 
+                Part[$CellContext`concls, $CellContext`i, 
+                 5])]}, {$CellContext`i, 1, 
+              
+              Length[$CellContext`concls]}]; $CellContext`lsk]; \
+$CellContext`Fdecay[
+          Pattern[$CellContext`ages, 
+           Blank[]], 
+          Pattern[$CellContext`lst, 
+           Blank[]], 
+          Pattern[$CellContext`attime, 
+           Blank[]], 
+          Pattern[$CellContext`lsk, 
+           Blank[]], 
+          Pattern[$CellContext`stages, 
+           Blank[]]] := 
+        Module[{$CellContext`tmp, $CellContext`i}, $CellContext`i = \
+$CellContext`ages; $CellContext`tmp = Part[$CellContext`lst, $CellContext`i]; 
+          If[Part[$CellContext`stages, $CellContext`i] == 1, $CellContext`tmp = 
+            Part[$CellContext`lst, $CellContext`i] 
+             Exp[-Part[$CellContext`lsk, $CellContext`attime, 1]]]; 
+          If[Part[$CellContext`stages, $CellContext`i] == 2, $CellContext`tmp = 
+            Part[$CellContext`lst, $CellContext`i] 
+             Exp[-Part[$CellContext`lsk, $CellContext`attime, 2]]]; 
+          If[Part[$CellContext`stages, $CellContext`i] == 3, $CellContext`tmp = 
+            Part[$CellContext`lst, $CellContext`i] 
+             Exp[-Part[$CellContext`lsk, $CellContext`attime, 
+                 3]]]; $CellContext`tmp]; $CellContext`WhichRTS[
+          Pattern[$CellContext`lst, 
+           Blank[List]], 
+          Pattern[$CellContext`KZ, 
+           Blank[List]]] := 
+        Module[{$CellContext`i, $CellContext`tmp}, $CellContext`tmp = 
+           Table[0, {
+              Length[$CellContext`lst]}]; 
+          For[$CellContext`i = 1, $CellContext`i <= 
+            Length[$CellContext`lst], $CellContext`i = $CellContext`i + 1, 
+            If[IntervalMemberQ[
+                Interval[
+                 Part[$CellContext`KZ, 1]], $CellContext`i] == 
+              True, $CellContext`tmp = 
+               ReplacePart[$CellContext`tmp, $CellContext`i -> 1]; Null]; 
+            If[IntervalMemberQ[
+                Interval[
+                 Part[$CellContext`KZ, 2]], $CellContext`i] == 
+              True, $CellContext`tmp = 
+               ReplacePart[$CellContext`tmp, $CellContext`i -> 2]; Null]; 
+            If[IntervalMemberQ[
+                Interval[
+                 Part[$CellContext`KZ, 3]], $CellContext`i] == 
+              True, $CellContext`tmp = 
+               ReplacePart[$CellContext`tmp, $CellContext`i -> 3]; Null]; 
+            Null]; $CellContext`tmp]; $CellContext`PRingFunc[
+          Pattern[$CellContext`i, 
+           Blank[Integer]], 
+          Pattern[$CellContext`a1, 
+           Blank[Integer]], 
+          Pattern[$CellContext`a2, 
+           Blank[Integer]]] := 
+        Piecewise[{{1, $CellContext`i < $CellContext`a1}, {
+            Exp[
+            Log[0.5] (($CellContext`i - $CellContext`a1)/($CellContext`a2 - \
+$CellContext`a1))], $CellContext`i >= $CellContext`a1}}]; $CellContext`LsDot[
+          Pattern[$CellContext`ls1, 
+           Blank[List]], 
+          Pattern[$CellContext`ls2, 
+           Blank[
+           List]]] := $CellContext`ls1 $CellContext`ls2; \
+$CellContext`ParasiteDynamics[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`PMR, 
+           Blank[Integer]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]], 
+          Pattern[$CellContext`hours, 
+           Blank[Integer]], 
+          Pattern[$CellContext`KZ, 
+           Blank[List]], 
+          Pattern[$CellContext`concdat, 
+           Blank[List]], 
+          Pattern[$CellContext`everyH, 
+           Blank[Integer]], 
+          Pattern[$CellContext`Ndrug, 
+           Blank[Integer]], 
+          Pattern[$CellContext`gamma, 
+           Blank[List]], 
+          Pattern[$CellContext`ec50, 
+           Blank[List]], 
+          Pattern[$CellContext`emin, 
+           Blank[List]], 
+          Pattern[$CellContext`emax, 
+           Blank[List]], 
+          Pattern[$CellContext`T, 
+           Blank[Real]], 
+          Pattern[$CellContext`runMax, 
+           Blank[Integer]]] := 
+        Module[{$CellContext`runs = 
+           True, $CellContext`stages, $CellContext`concls, $CellContext`i, \
+$CellContext`j, $CellContext`lst, $CellContext`lsk, $CellContext`output = {}, \
+$CellContext`xm, $CellContext`ym, $CellContext`a, $CellContext`ke, \
+$CellContext`junk, $CellContext`onlyring, $CellContext`tot}, $CellContext`xm = 
+           Part[$CellContext`concdat, 1]; $CellContext`ym = 
+           Part[$CellContext`concdat, 2]; $CellContext`a = 
+           Part[$CellContext`concdat, 3]; $CellContext`ke = 
+           Part[$CellContext`concdat, 
+             4]; $CellContext`concls = $CellContext`ConcMod[$CellContext`xm, \
+$CellContext`ym, $CellContext`a, $CellContext`ke, $CellContext`everyH, \
+$CellContext`Ndrug, $CellContext`gamma, $CellContext`ec50, $CellContext`emin, \
+$CellContext`emax]; $CellContext`lsk = $CellContext`Ki[$CellContext`T, \
+$CellContext`concls]; $CellContext`lst = \
+$CellContext`DistributeN[$CellContext`initN, $CellContext`hours, \
+$CellContext`mu, $CellContext`sigma]; $CellContext`stages = \
+$CellContext`WhichRTS[$CellContext`lst, $CellContext`KZ]; 
+          AppendTo[$CellContext`output, $CellContext`lst]; $CellContext`i = 0; 
+          While[
+            
+            And[$CellContext`runs == 
+             True, $CellContext`i < $CellContext`runMax], $CellContext`i = \
+$CellContext`i + 
+              1; $CellContext`lst = \
+$CellContext`Shiftonehour[$CellContext`lst, $CellContext`PMR]; 
+            For[$CellContext`j = 1, $CellContext`j <= 
+              Length[$CellContext`lst], $CellContext`j = $CellContext`j + 
+               1, $CellContext`lst = 
+               ReplacePart[$CellContext`lst, $CellContext`j -> \
+$CellContext`Fdecay[$CellContext`j, $CellContext`lst, $CellContext`i, \
+$CellContext`lsk, $CellContext`stages]]; Null]; 
+            AppendTo[$CellContext`output, $CellContext`lst]; 
+            Null]; $CellContext`junk = Map[$CellContext`LsDot[#, 
+              Table[
+               $CellContext`PRingFunc[$CellContext`i, 11, 
+                14], {$CellContext`i, 
+                1, $CellContext`hours}]]& , $CellContext`output]; \
+$CellContext`onlyring = Table[{$CellContext`i - 1, 
+              Log10[
+               Total[
+                Part[$CellContext`junk, $CellContext`i]]]}, {$CellContext`i, 
+              1, 
+              Length[$CellContext`junk]}]; $CellContext`tot = 
+           Table[{$CellContext`i - 1, 
+              Log10[
+               Total[
+                Part[$CellContext`output, $CellContext`i]]]}, {$CellContext`i,
+               1, 
+              
+              Length[$CellContext`output]}]; {$CellContext`onlyring, \
+$CellContext`tot}]; $CellContext`ParaDist[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`LC, 
+           Blank[]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]]] := ListLogPlot[
+          $CellContext`DistributeN[$CellContext`initN, $CellContext`LC, \
+$CellContext`mu, $CellContext`sigma], Filling -> Axis, 
+          ImageSize -> {350, 150}, Frame -> {True, True, False, False}, 
+          FrameLabel -> {"age of parasites (h)", "number of parasites"}, 
+          PlotStyle -> {Orange}]; $CellContext`DHAGraph[
+          Pattern[$CellContext`xm, 
+           Blank[]], 
+          Pattern[$CellContext`ym, 
+           Blank[]], 
+          Pattern[$CellContext`a, 
+           Blank[]], 
+          Pattern[$CellContext`ke, 
+           Blank[]]] := 
+        Module[{$CellContext`points, $CellContext`t}, $CellContext`points = 
+           Table[{$CellContext`t, 
+              $CellContext`genpoints[$CellContext`xm, $CellContext`ym, \
+$CellContext`ke, $CellContext`t]}, {$CellContext`t, 0, 20, 0.1}]; 
+          ListPlot[$CellContext`points, Joined -> True, PlotRange -> All, 
+            Frame -> {True, True, False, False}, 
+            FrameLabel -> {"time (h)", "DHA concentration (ng/ml)"}, 
+            PlotStyle -> {Red, Thick}, 
+            ImageSize -> {350, 150}]]; $CellContext`ParaGraph[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`PMR, 
+           Blank[Integer]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]], 
+          Pattern[$CellContext`hours, 
+           Blank[Integer]], 
+          Pattern[$CellContext`KZ, 
+           Blank[List]], 
+          Pattern[$CellContext`concdat, 
+           Blank[List]], 
+          Pattern[$CellContext`everyH, 
+           Blank[Integer]], 
+          Pattern[$CellContext`Ndrug, 
+           Blank[Integer]], 
+          Pattern[$CellContext`gamma, 
+           Blank[List]], 
+          Pattern[$CellContext`ec50, 
+           Blank[List]], 
+          Pattern[$CellContext`emin, 
+           Blank[List]], 
+          Pattern[$CellContext`emax, 
+           Blank[List]], 
+          Pattern[$CellContext`T, 
+           Blank[Real]], 
+          Pattern[$CellContext`runMax, 
+           Blank[Integer]]] := ListPlot[
+          $CellContext`ParasiteDynamics[$CellContext`initN, $CellContext`PMR, \
+$CellContext`mu, $CellContext`sigma, $CellContext`hours, $CellContext`KZ, \
+$CellContext`concdat, $CellContext`everyH, $CellContext`Ndrug, \
+$CellContext`gamma, $CellContext`ec50, $CellContext`emin, $CellContext`emax, \
+$CellContext`T, $CellContext`runMax], Frame -> {True, True, False, False}, 
+          FrameLabel -> {"time (h)", "# of parasites (log 10)"}, 
+          Joined -> {True, True}, ImageSize -> {350, 160}, 
+          PlotStyle -> {{Blue, Thick}, {Gray, Thick, Dashed}}, 
+          PlotRange -> {{0, 125}, {0, 13}}, 
+          PlotLegends`PlotLegend -> {
+           "Circulating", "Circulating +\n Sequestered"}, 
+          PlotLegends`LegendPosition -> {0, 0.15}, PlotLegends`LegendBorder -> 
+          None, PlotLegends`LegendShadow -> None]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->False,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellID->757815745],
+
+Cell[CellGroupData[{
+
+Cell["CAPTION", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[TextData[{
+ "This Demonstration shows a model of population dynamics of malaria \
+parasites (",
+ StyleBox["Plasmodium falciparum",
+  FontSlant->"Italic"],
+ ") in a patient during treatment with artesunate (an antimalarial drug). The \
+model assumes the age of parasites in a patient on admission follows a normal \
+distribution (top graph). The concentration of drug over time is incorporated \
+into the model by assuming that subsequent doses have the same concentration \
+profile (middle graph). The model also assumes the action of artesunate \
+varies depending on the ages of parasites. The model then combines a \
+dose-effect relationship with the drug concentration to determine how many \
+parasites at each stage are killed by the drug at each point in time. The \
+output (bottom graph) shows the number of total parasites (sequestered + \
+circulating) and the number of circulating parasites over time."
+}], "Text"]
+}, Close]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DETAILS", "Section",
+ CellFrame->{{0, 0}, {1, 0}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->12,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[TextData[{
+ "This Demonstration is adapted from [1]. The model assumes the age of \
+parasites in a patient on admission follows a normal distribution with the \
+mean ",
+ Cell[BoxData[
+  FormBox["\[Mu]", TraditionalForm]], "InlineMath"],
+ " and standard deviation ",
+ Cell[BoxData[
+  FormBox["\[Sigma]", TraditionalForm]], "InlineMath"],
+ " hours. The concentration of drug over time is incorporated into the model \
+by assuming that subsequent doses have the same concentration profile. Here \
+the concentration is divided into two phases: "
+}], "Text"],
+
+Cell[TextData[{
+ "absorption, using a straight line; ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"y", "(", "t", ")"}], "=", 
+    RowBox[{"m", " ", "t"}]}], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"0", "\[LessEqual]", "t", "\[LessEqual]", 
+    SubscriptBox["t", "max"]}], TraditionalForm]], "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "max"], TraditionalForm]], "InlineMath"],
+ " is the time of maximum concentration, and "
+}], "Text"],
+
+Cell[TextData[{
+ "elimination, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"y", "(", "t", ")"}], "=", 
+    RowBox[{
+     RowBox[{"y", "(", 
+      SubscriptBox["t", "max"], ")"}], 
+     SuperscriptBox["e", 
+      RowBox[{
+       RowBox[{"-", "k"}], " ", "t"}]]}]}], TraditionalForm]], "InlineMath"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["t", "max"], "\[LessEqual]", "t"}], TraditionalForm]], 
+  "InlineMath"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["k", TraditionalForm]], "InlineMath"],
+ " is the elimination rate."
+}], "Text"],
+
+Cell[TextData[{
+ "The action of artesunate is assumed to vary depending on the ages of the \
+parasites. Here the sensitive ages to the drug are divided into three \
+sequential time intervals (kill zones), ranging from ring to schizont. So \
+each stage (kill zone) has its own dose-effect relationship. The model then \
+combines the dose-effect relationship of each stage ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Eff", "(", 
+      RowBox[{"c", "(", "t", ")"}], ")"}], "=", 
+     RowBox[{
+      SubscriptBox["E", "max"], 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"c", "(", "t", ")"}], "\[Gamma]"], "/", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"c", "(", "t", ")"}], "\[Gamma]"], "+", 
+         SuperscriptBox[
+          SubscriptBox["EC", "50"], "\[Gamma]"]}], ")"}]}]}]}]}], 
+   TraditionalForm]], "InlineMath"],
+ ") with the drug concentration to determine how many parasites at each stage \
+are killed by the drug at each time point. "
+}], "Text"],
+
+Cell["Reference", "Text"],
+
+Cell[TextData[{
+ "[1] S. Saralamba, W. Pan-Ngum, R. J. Maude, S. J. Lee, J. Tarning, N. \
+Lindeg\[ARing]rdh, K. Chotivanich, F. Nosten, N. P. J. Day, D. Socheat, N. J. \
+White, A. M. Dondorp, and L. J. White, \"Intrahost Modeling of Artemisinin \
+Resistance in ",
+ StyleBox["Plasmodium Falciparum",
+  FontSlant->"Italic"],
+ ",\" ",
+ StyleBox["PNAS",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["108",
+  FontWeight->"Bold"],
+ "(1), 2011 pp. 397\[Dash]402."
+}], "Text"]
+}, Close]],
+
+Cell["THIS NOTEBOOK IS THE SOURCE CODE FROM", "Text",
+ CellFrame->{{0, 0}, {0, 0}},
+ CellMargins->{{48, 10}, {4, 28}},
+ CellGroupingRules->{"SectionGrouping", 25},
+ CellFrameMargins->{{48, 48}, {6, 5}},
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ FontFamily->"Helvetica",
+ FontSize->10,
+ FontWeight->"Bold",
+ FontColor->RGBColor[0.597406, 0, 0.0527047]],
+
+Cell[TextData[{
+ "\[NonBreakingSpace]",
+ ButtonBox["Sompob Saralamba",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/author.html?author=Sompob+\
+Saralamba"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/author.html?author=Sompob+Saralamba"]
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.6]],
+
+Cell[TextData[{
+ "\"",
+ ButtonBox["A Model of ",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"],
+ StyleBox[ButtonBox["Plasmodium Falciparum",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"],
+  FontSlant->"Italic"],
+ ButtonBox[" Population Dynamics in a Patient during Treatment with \
+Artesunate",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"],
+ "\"",
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"], None},
+  ButtonNote->
+   "http://demonstrations.wolfram.com/\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ ButtonBox["Wolfram Demonstrations Project",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+ "\[ParagraphSeparator]\[NonBreakingSpace]",
+ "Published: ",
+ "August 27, 2011"
+}], "Text",
+ CellMargins->{{48, Inherited}, {0, Inherited}},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.5]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "A full-function Wolfram ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " system is required to edit this notebook.\n",
+ StyleBox[ButtonBox["GET WOLFRAM MATHEMATICA \[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.wolfram.com/products/mathematica/"], None},
+  ButtonNote->"http://www.wolfram.com/products/mathematica/"],
+  FontFamily->"Helvetica",
+  FontWeight->"Bold",
+  FontSlant->"Italic",
+  FontColor->RGBColor[1, 0.42, 0]]
+}], "Text",
+ CellFrame->True,
+ CellMargins->{{48, 68}, {8, 28}},
+ CellFrameMargins->12,
+ CellFrameColor->RGBColor[0.87, 0.87, 0.87],
+ CellChangeTimes->{3.3750111182355957`*^9},
+ ParagraphSpacing->{1., 1.},
+ FontFamily->"Verdana",
+ FontSize->10,
+ FontColor->GrayLevel[0.411765],
+ Background->RGBColor[1, 1, 1]],
+
+Cell[TextData[{
+ "\[Copyright] ",
+ StyleBox[ButtonBox["Wolfram Demonstrations Project & Contributors",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Terms of Use",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/termsofuse.html"], None},
+  ButtonNote->"http://demonstrations.wolfram.com/termsofuse.html"],
+  FontColor->GrayLevel[0.6]],
+ "\[ThickSpace]\[ThickSpace]\[ThickSpace]|\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+ StyleBox[ButtonBox["Make a new version of this Demonstration \
+\[RightGuillemet]",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://demonstrations.wolfram.com/participate/upload.jsp?id=\
+AModelOfPlasmodiumFalciparumPopulationDynamicsInAPatientDuri"], None},
+  ButtonNote->None],
+  FontColor->GrayLevel[0.6]]
+}], "Text",
+ CellFrame->{{0, 0}, {0, 0.5}},
+ CellMargins->{{48, 10}, {20, 50}},
+ CellFrameMargins->{{6, 0}, {6, 6}},
+ CellFrameColor->GrayLevel[0.6],
+ FontFamily->"Verdana",
+ FontSize->9,
+ FontColor->GrayLevel[0.6]]
+}, Open  ]]
+},
+Editable->True,
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+CellInsertionPointCell->None,
+WindowSize->{780, 650},
+WindowMargins->{{Inherited, Inherited}, {Inherited, 0}},
+WindowElements->{
+ "StatusArea", "MemoryMonitor", "MagnificationPopUp", "VerticalScrollBar", 
+  "MenuBar"},
+WindowTitle->"A Model of Plasmodium Falciparum Population Dynamics in a \
+Patient during Treatment with Artesunate - Source",
+DockedCells->{},
+CellContext->Notebook,
+FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (February 23, 2011)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[702, 24, 276, 8, 70, "Section"],
+Cell[981, 34, 3700, 64, 70, "Section"],
+Cell[4684, 100, 52435, 1159, 70, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57156, 1264, 31471, 624, 70, "Output",
+ CellID->757815745],
+Cell[CellGroupData[{
+Cell[88652, 1892, 209, 6, 70, "Section"],
+Cell[88864, 1900, 928, 15, 70, "Text"]
+}, Close]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89840, 1921, 209, 6, 70, "Section"],
+Cell[90052, 1929, 558, 12, 70, "Text"],
+Cell[90613, 1943, 512, 17, 70, "Text"],
+Cell[91128, 1962, 560, 22, 70, "Text"],
+Cell[91691, 1986, 1034, 26, 70, "Text"],
+Cell[92728, 2014, 25, 0, 70, "Text"],
+Cell[92756, 2016, 464, 14, 70, "Text"]
+}, Close]],
+Cell[93234, 2033, 355, 9, 70, "Text",
+ CellGroupingRules->{"SectionGrouping", 25}],
+Cell[93592, 2044, 422, 13, 70, "Text"],
+Cell[94017, 2059, 1927, 52, 70, "Text"],
+Cell[CellGroupData[{
+Cell[95969, 2115, 793, 24, 70, "Text"],
+Cell[96765, 2141, 1232, 33, 70, "Text"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+(* NotebookSignature JSjiqrSMQIVwIDp38eCVv43U *)
