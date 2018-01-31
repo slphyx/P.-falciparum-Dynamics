@@ -1,0 +1,1601 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     71281,       1592]
+NotebookOptionsPosition[     70834,       1574]
+NotebookOutlinePosition[     71259,       1590]
+CellTagsIndexPosition[     71216,       1587]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"Hoshen", ",", 
+   RowBox[{"M", ".", "B", "."}], ",", 
+   RowBox[{"Na", "-", "Bangchang"}], ",", 
+   RowBox[{"K", "."}], ",", "Stein", ",", 
+   RowBox[{"W", ".", "D", "."}], ",", 
+   RowBox[{"&", " ", "Ginsburg"}], ",", 
+   RowBox[{
+    RowBox[{"H", ".", 
+     RowBox[{"(", "2000", ")"}]}], " ", "Mathematical", " ", "modelling", " ",
+     "of", " ", "the", " ", "chemotherapy", " ", "of", " ", "Plasmodium", " ",
+     "falciparum", " ", "malaria", " ", "with", " ", 
+    RowBox[{"artesunate", ":", 
+     RowBox[{"postulation", " ", 
+      RowBox[{"of", "'"}], 
+      RowBox[{"dormancy", "'"}]}]}]}], ",", 
+   RowBox[{
+   "a", " ", "partial", " ", "cytostatic", " ", "effect", " ", "of", " ", 
+    "the", " ", "drug"}], ",", 
+   RowBox[{
+   "and", " ", "its", " ", "implication", " ", "for", " ", "treatment", " ", 
+    "regimens", " ", "Parasitology", " ", "121", " ", 
+    RowBox[{"(", 
+     RowBox[{"Pt", " ", "3"}], ")"}]}], ",", 
+   RowBox[{"237", "-", "246"}]}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.5121956813203955`*^9, 3.512195683695304*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"points", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"t", ",", 
+           RowBox[{"genpoints", "[", 
+            RowBox[{"xm", ",", "ym", ",", "ke", ",", "t"}], "]"}]}], "}"}], 
+         ",", 
+         RowBox[{"{", 
+          RowBox[{"t", ",", "0", ",", "20", ",", "0.1"}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"(*", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"dat", "=", "points"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"position", " ", "of", " ", "Cmax"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"maxpoint", "=", 
+         RowBox[{"Position", "[", 
+          RowBox[{"dat", ",", 
+           RowBox[{"Max", "[", "dat", "]"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"endtime", "=", 
+         RowBox[{"Last", "[", "dat", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", "absorbtion", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"part1", "=", 
+         RowBox[{"dat", "[", 
+          RowBox[{"[", 
+           RowBox[{"1", ";;", 
+            RowBox[{"maxpoint", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", ",", "1"}], "]"}], "]"}]}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", "elimination", "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"part2", "=", 
+         RowBox[{"dat", "[", 
+          RowBox[{"[", 
+           RowBox[{
+            RowBox[{"maxpoint", "[", 
+             RowBox[{"[", 
+              RowBox[{"1", ",", "1"}], "]"}], "]"}], ";;", 
+            RowBox[{"Length", "[", "dat", "]"}]}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"*", "modka"}], "=", 
+           RowBox[{"Fit", "[", 
+            RowBox[{"part1", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "t", ",", 
+               RowBox[{"t", "^", "2"}]}], "}"}], ",", "t"}], "]"}]}], ";"}], 
+         "**)"}], 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"modka", "=", 
+           RowBox[{"Fit", "[", 
+            RowBox[{"part1", ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "t"}], "}"}], ",", "t"}], "]"}]}], ";"}], 
+         "*)"}], 
+        RowBox[{"(*", 
+         RowBox[{"using", " ", "straight", " ", "line"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"Quiet", "[", 
+         RowBox[{
+          RowBox[{"modka", "=", 
+           RowBox[{"Fit", "[", 
+            RowBox[{"part1", ",", 
+             RowBox[{"{", "t", "}"}], ",", "t"}], "]"}]}], ";"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Quiet", "[", 
+         RowBox[{
+          RowBox[{"fitke", "=", 
+           RowBox[{"FindFit", "[", 
+            RowBox[{"part2", ",", 
+             RowBox[{"a", "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{
+                RowBox[{"-", "ke"}], "*", "t"}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"a", ",", "ke"}], "}"}], ",", "t"}], "]"}]}], ";"}], 
+         "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"modke", "=", 
+         RowBox[{"Function", "[", 
+          RowBox[{
+           RowBox[{"{", "t", "}"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{
+             RowBox[{"a", "*", 
+              RowBox[{"Exp", "[", 
+               RowBox[{
+                RowBox[{"-", "ke"}], "*", "t"}], "]"}]}], "/.", "fitke"}], 
+            "]"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"output", " ", "equations"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"fn", "=", 
+         RowBox[{"Piecewise", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"modka", ",", 
+              RowBox[{"0", "\[LessEqual]", "t", "<", 
+               RowBox[{"dat", "[", 
+                RowBox[{"[", 
+                 RowBox[{
+                  RowBox[{"maxpoint", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "1"}], "]"}], 
+                "]"}]}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"modke", "[", "t", "]"}], ",", 
+              RowBox[{"t", "\[GreaterEqual]", 
+               RowBox[{"dat", "[", 
+                RowBox[{"[", 
+                 RowBox[{
+                  RowBox[{"maxpoint", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "1"}], "]"}], 
+                "]"}]}]}], "}"}]}], "}"}], "]"}]}], ";"}], 
+       "\[IndentingNewLine]", "*)"}], "\[IndentingNewLine]", 
+      RowBox[{"GraphicsColumn", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ListPlot", "[", 
+           RowBox[{"points", ",", 
+            RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+            RowBox[{"PlotRange", "\[Rule]", "All"}], ",", 
+            RowBox[{"Frame", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"True", ",", "True", ",", "False", ",", "False"}], 
+              "}"}]}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<time(hrs)\>\"", ",", "\"\<DHA concentration(ng/ml)\>\""}], 
+              "}"}]}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", "Thick"}], "}"}]}], ",", 
+            RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+            RowBox[{"GridLinesStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"LightGray", ",", "Dashed"}], "]"}]}], ",", 
+            RowBox[{"LabelStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Medium", ",", 
+               RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], 
+              "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+          "\[IndentingNewLine]", 
+          RowBox[{"ListPlot", "[", 
+           RowBox[{
+            RowBox[{"Hoshen", "[", 
+             RowBox[{
+             "initN", ",", "PMR", ",", "mu", ",", "sigma", ",", "48", ",", 
+              RowBox[{"{", 
+               RowBox[{"xm", ",", "ym", ",", "ke"}], "}"}], ",", "everyH", 
+              ",", "Ndrug", ",", "ec50", ",", "runMax", ",", "dorfrac", ",", 
+              "dortime", ",", "2"}], "]"}], ",", 
+            RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+            RowBox[{"Frame", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"True", ",", "True", ",", "False", ",", "False"}], 
+              "}"}]}], ",", 
+            RowBox[{"FrameLabel", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{
+              "\"\<time(hrs)\>\"", ",", 
+               "\"\<log10 parasitaemia(/\[Mu]l)\>\""}], "}"}]}], ",", 
+            RowBox[{"PlotStyle", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"Black", ",", "Thick"}], "}"}]}], ",", 
+            RowBox[{"GridLines", "\[Rule]", "Automatic"}], ",", 
+            RowBox[{"GridLinesStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"LightGray", ",", "Dashed"}], "]"}]}], ",", 
+            RowBox[{"LabelStyle", "\[Rule]", 
+             RowBox[{"Directive", "[", 
+              RowBox[{"Medium", ",", 
+               RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], 
+              "]"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+         "\[IndentingNewLine]", "}"}], ",", 
+        RowBox[{"Frame", "\[Rule]", " ", "All"}]}], "\[IndentingNewLine]", 
+       "]"}]}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+     RowBox[{"Style", "[", 
+      RowBox[{
+      "\"\<Mahidol-Oxford Tropical Medicine Research Unit\>\"", ",", "Bold"}],
+       "]"}], ",", "Delimiter", ",", 
+     "\"\<M. B. Hoshen et al. Parasitology (2000) 121, 237-246\>\"", ",", 
+     "Delimiter", ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "xm", ",", "2", ",", "\"\<time at Max Concentration(hrs)\>\""}], 
+        "}"}], ",", "1", ",", "20", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ym", ",", "1000", ",", "\"\<Max Concentration(ng/ml)\>\""}], 
+        "}"}], ",", "0.5", ",", "2000.", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ke", ",", "0.5", ",", "\"\<Decay rate(/hrs)\>\""}], "}"}], 
+       ",", "0.001", ",", "10", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"initN", ",", 
+         RowBox[{"10.", "^", "4"}], ",", 
+         "\"\<initial parasitaemia (parasite/\[Mu]l)\>\""}], "}"}], ",", 
+       "10.", ",", 
+       RowBox[{"10.", "^", "6"}], ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "PMR", ",", "5", ",", "\"\<parasite multiplication rate\>\""}], "}"}],
+        ",", "1", ",", "30", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"mu", ",", "16", ",", "\"\<mean age of parasites\>\""}], 
+        "}"}], ",", "1", ",", "48", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"sigma", ",", "5", ",", "\"\<SD of age of parasites\>\""}], 
+        "}"}], ",", "1", ",", "48", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"everyH", ",", "24", ",", "\"\<drug period (hrs)\>\""}], 
+        "}"}], ",", "1", ",", "48", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Ndrug", ",", "7", ",", "\"\<number of drug\>\""}], "}"}], 
+       ",", "1", ",", "14", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ec50", ",", "50.", ",", "\"\<EC50(ng/ml)\>\""}], "}"}], ",", 
+       "0.1", ",", "1000", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "runMax", ",", "80", ",", "\"\<max simulation time(hrs)\>\""}], "}"}],
+        ",", "10", ",", "200", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"dorfrac", ",", "0.02", ",", "\"\<Dormancy Fraction\>\""}], 
+        "}"}], ",", "0.0", ",", "0.09", ",", "0.0001", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"dortime", ",", "7", ",", "\"\<Dormancy period(hrs)\>\""}], 
+        "}"}], ",", "1", ",", "200", ",", "1", ",", 
+       RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], 
+     "\[IndentingNewLine]", ",", 
+     RowBox[{"ContinuousAction", "\[Rule]", "False"}], ",", 
+     RowBox[{"ControlPlacement", "\[Rule]", "Right"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Initialization", "\[RuleDelayed]", " ", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Hoshen", "[", 
+          RowBox[{
+          "initN_", ",", "PMR_Integer", ",", "mu_", ",", "sigma_", ",", 
+           "hours_Integer", ",", "concdat_List", ",", "everyH_Integer", ",", 
+           "Ndrug_Integer", ",", "ec50_", ",", "runMax_Integer", ",", 
+           "dorfrac_", ",", "dortime_", ",", "outfile_"}], "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "runs", ",", "concls", ",", "i", ",", "j", ",", "lst", ",", 
+             "time", ",", "output", ",", "dorls", ",", "dorperd", ",", "xm", 
+             ",", "ym", ",", "ke"}], "}"}], ",", 
+           RowBox[{"(*", 
+            RowBox[{"dorfrac", "=", 
+             RowBox[{
+              RowBox[{
+              "fraction", " ", "of", " ", "parasites", " ", "to", " ", "be", 
+               " ", "dormant", " ", "dortime"}], "=", 
+              RowBox[{"dormancy", " ", "period", " ", 
+               RowBox[{"(", "hours", ")"}]}]}]}], "*)"}], 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"*", "outfile"}], "=", 
+              RowBox[{
+              "1", " ", "write", " ", "the", " ", "output", " ", "to", " ", 
+               RowBox[{"modgen", ".", "csv"}]}]}], ";", 
+             RowBox[{"0", "=", 
+              RowBox[{
+               RowBox[{"don", "'"}], "t", " ", "write", " ", "output", " ", 
+               RowBox[{"file", "."}]}]}]}], "*)"}], 
+           RowBox[{
+            RowBox[{"runs", "=", "True"}], ";", 
+            RowBox[{"(*", 
+             RowBox[{"running", " ", "status"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"time", "=", "runMax"}], ";", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+               "time", " ", "for", " ", "calculating", " ", "the", " ", 
+                "concentrations", 
+                RowBox[{"(", "hr", ")"}]}], ".."}], "it", " ", "is", " ", 
+              "the", " ", "maximum", " ", "time", " ", "that", " ", "the", 
+              " ", "program", " ", "can", " ", 
+              RowBox[{"run", "!"}]}], "*)"}], 
+            RowBox[{"dorperd", "=", "0"}], ";", 
+            RowBox[{"(*", 
+             RowBox[{"dormancy", " ", "period", " ", "counter"}], "*)"}], 
+            RowBox[{"dorls", "=", 
+             RowBox[{"{", "}"}]}], ";", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"dormant", " ", "parasites", " ", "at", " ", "6"}], "-", 
+              RowBox[{"26", " ", "hours"}]}], "*)"}], 
+            RowBox[{"output", "=", 
+             RowBox[{"{", "}"}]}], ";", 
+            RowBox[{"(*", 
+             RowBox[{
+             "list", " ", "of", " ", "the", " ", "parasite", " ", 
+              "distribution", " ", "at", " ", "each", " ", "time", " ", 
+              "step"}], "*)"}], 
+            RowBox[{"(*", 
+             RowBox[{
+             "template", " ", "of", " ", "the", " ", "drug", " ", "and", " ", 
+              "its", " ", "effects"}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"xm", "=", 
+             RowBox[{"concdat", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"ym", "=", 
+             RowBox[{"concdat", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"ke", "=", 
+             RowBox[{"concdat", "[", 
+              RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"concls", "=", 
+             RowBox[{"ConcMod2", "[", 
+              RowBox[{
+              "xm", ",", "ym", ",", "ke", ",", "everyH", ",", "Ndrug", ",", 
+               "ec50"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"initial", " ", "parasite", " ", "load"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"lst", "=", 
+             RowBox[{"DistributeN", "[", 
+              RowBox[{"initN", ",", "hours", ",", "mu", ",", "sigma"}], 
+              "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"tmp1", "=", 
+               RowBox[{"Log", "[", 
+                RowBox[{"10", ",", 
+                 RowBox[{"Total", "[", "lst", "]"}]}], "]"}]}], ";"}], "*)"}], 
+            RowBox[{"(*", 
+             RowBox[{"count", " ", "all"}], "*)"}], 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"tmp1", "=", 
+               RowBox[{
+                RowBox[{"Log", "[", 
+                 RowBox[{"10", ",", 
+                  RowBox[{"Total", "[", 
+                   RowBox[{"lst", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "38"}], "}"}]}], "]"}]}], "]"}], "//", 
+                "Abs"}]}], ";"}], 
+             RowBox[{"(*", 
+              RowBox[{"count", " ", "up", " ", "to", " ", 
+               RowBox[{
+                RowBox[{"Schizonts", "!!"}], "!"}]}], "*)"}], "*)"}], 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"sum", " ", "all", " ", "1"}], "-", 
+              RowBox[{"24", " ", "Hosen", " ", "et", " ", 
+               RowBox[{"al", ".", 
+                RowBox[{"(", "2000", ")"}]}]}]}], "*)"}], 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"tmp1", "=", 
+               RowBox[{
+                RowBox[{"Log10", "[", 
+                 RowBox[{"CountRing", "[", 
+                  RowBox[{"lst", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "24"}], "}"}], ",", "0"}], "]"}], "]"}],
+                 "//", "Abs"}]}], ";"}], "*)"}], 
+            RowBox[{"(*", 
+             RowBox[{"adding", " ", "the", " ", "values"}], "*)"}], 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"output", ",", "lst"}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"i", "=", "0"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"While", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"runs", "\[Equal]", "True"}], "&&", 
+               RowBox[{"i", "<", "time"}]}], ",", 
+              RowBox[{"(*", 
+               RowBox[{"evolving", " ", "the", " ", "system"}], "*)"}], 
+              RowBox[{
+               RowBox[{"i", "=", 
+                RowBox[{"i", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"lst", "=", 
+                RowBox[{"Shiftonehour", "[", 
+                 RowBox[{"lst", ",", "PMR"}], "]"}]}], ";", 
+               RowBox[{"(*", 
+                RowBox[{"Parasites", " ", "are", " ", 
+                 RowBox[{"growing", ".", "Feed"}], " ", 
+                 RowBox[{"them", "!"}]}], "*)"}], 
+               RowBox[{"(*", 
+                RowBox[{"become", " ", "dormant"}], "*)"}], 
+               "\[IndentingNewLine]", 
+               RowBox[{"dorls", "=", 
+                RowBox[{"DorCollect", "[", 
+                 RowBox[{"dorls", ",", 
+                  RowBox[{"dorfrac", "*", 
+                   RowBox[{"lst", "~", "Join", "~", 
+                    RowBox[{"{", "0", "}"}]}]}]}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"lst", "=", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"1.", "-", "dorfrac"}], ")"}], "*", "lst"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{"dormancy", " ", "parasites", " ", 
+                 RowBox[{"can", "'"}], "t", " ", "be", " ", "killed", " ", 
+                 "and", " ", "can", " ", "not", " ", "be", " ", "observed", 
+                 " ", "in", " ", "blood", " ", "sample", " ", "Hoshen", " ", 
+                 "et", " ", "al", " ", "Parasitology", " ", 
+                 RowBox[{"(", "2000", ")"}]}], "*)"}], 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"dorls", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"Length", "@", 
+                    RowBox[{"dorls", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}], 
+                  "\[Equal]", 
+                  RowBox[{"Round", "@", 
+                   RowBox[{"RandomReal", "[", 
+                    RowBox[{"NormalDistribution", "[", 
+                    RowBox[{"dortime", ",", "2"}], "]"}], "]"}]}]}], ",", 
+                 RowBox[{
+                  RowBox[{"lst", "=", 
+                   RowBox[{"lst", "+", 
+                    RowBox[{"dorls", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{"1", ";;", 
+                    RowBox[{
+                    RowBox[{"Length", "@", 
+                    RowBox[{"dorls", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "-", "1"}]}]}], "]"}], 
+                    "]"}]}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"dorls", "=", 
+                   RowBox[{"Drop", "[", 
+                    RowBox[{"dorls", ",", "1"}], "]"}]}], ";"}]}], "]"}], ";",
+                "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{"a", " ", "time", " ", "to", " ", 
+                 RowBox[{"kill", "."}]}], "*)"}], "\[IndentingNewLine]", 
+               RowBox[{"For", "[", 
+                RowBox[{
+                 RowBox[{"j", "=", "1"}], ",", 
+                 RowBox[{"j", "\[LessEqual]", 
+                  RowBox[{"Length", "[", "lst", "]"}]}], ",", 
+                 RowBox[{"j", "=", 
+                  RowBox[{"j", "+", "1"}]}], ",", 
+                 RowBox[{
+                  RowBox[{"lst", "=", 
+                   RowBox[{"ReplacePart", "[", 
+                    RowBox[{"lst", ",", 
+                    RowBox[{"j", "\[Rule]", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"1.", "-", 
+                    RowBox[{
+                    RowBox[{"HoshenDHAEff", "[", "j", "]"}], "*", 
+                    RowBox[{"concls", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"i", ",", "3"}], "]"}], "]"}]}]}], ")"}], "*", 
+                    RowBox[{"lst", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}]}]}], "]"}]}], ";"}]}], 
+                "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{"from", " ", "Hoshen", " ", "et", " ", 
+                 RowBox[{"al", ".", "Parasitology"}], 
+                 RowBox[{"(", "2000", ")"}], " ", "dormancy", " ", 
+                 "parasites", " ", "can", " ", "not", " ", "be", " ", 
+                 "observed", " ", "from", " ", "blood", " ", "sample"}], 
+                "*)"}], 
+               RowBox[{"(*", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"lst", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"6", ";;", "26"}], "]"}], "]"}], "=", 
+                  RowBox[{
+                   RowBox[{"lst", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"6", ";;", "26"}], "]"}], "]"}], "+", 
+                   RowBox[{"dorfrac", "*", 
+                    RowBox[{"lst", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"6", ";;", "26"}], "]"}], "]"}]}]}]}], ";"}], 
+                "*)"}], 
+               RowBox[{"(*", 
+                RowBox[{
+                "adding", " ", "a", " ", "point", " ", "for", " ", 
+                 "ploting"}], "*)"}], "\[IndentingNewLine]", 
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"output", ",", "lst"}], "]"}], ";"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+             "write", " ", "the", " ", "output", " ", "to", " ", "file"}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"outfile", "\[Equal]", "2"}], ",", 
+              RowBox[{"Table", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"i", "-", "1"}], ",", 
+                  RowBox[{"Log10", "@", 
+                   RowBox[{"CountRing", "[", 
+                    RowBox[{
+                    RowBox[{"output", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"1", ",", "24"}], "}"}], ",", "0"}], "]"}]}]}], 
+                 "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{"i", ",", "1", ",", 
+                  RowBox[{"Length", "[", "output", "]"}]}], "}"}]}], "]"}]}], 
+             "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";", "\n", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"genpoints", "[", 
+          RowBox[{"xm_", ",", "ym_", ",", "ke_", ",", "x_"}], "]"}], ":=", 
+         RowBox[{"Piecewise", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ym", "-", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"ym", "/", "xm"}], ")"}], "*", 
+                RowBox[{"(", 
+                 RowBox[{"xm", "-", "x"}], ")"}]}]}], ",", 
+              RowBox[{"x", "\[LessEqual]", "  ", "xm"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"ym", "*", 
+               RowBox[{"Exp", "[", 
+                RowBox[{
+                 RowBox[{"-", "ke"}], "*", 
+                 RowBox[{"(", 
+                  RowBox[{"x", "-", "xm"}], ")"}]}], "]"}]}], ",", 
+              RowBox[{"x", ">", "   ", "xm"}]}], "}"}]}], "}"}], "]"}]}], ";",
+         "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"ConcMod2", "[", 
+          RowBox[{
+          "xm_", ",", "ym_", ",", "ke_", ",", "everyH_Integer", ",", 
+           "Ndrug_Integer", ",", "ec50_Real"}], "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "i", ",", "j", ",", "nd", ",", "dat", ",", "maxpoint", ",", 
+             "part1", ",", "part2", ",", "fitke", ",", "modka", ",", "x", ",",
+              "modke", ",", "fn", ",", "endtime", ",", "conc", ",", "concls", 
+             ",", "TIMEMAX"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"TIMEMAX", "=", "1000"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"(*", "\[IndentingNewLine]", 
+             RowBox[{"(*", 
+              RowBox[{
+              "*", "maximum", " ", "time", " ", "for", " ", "running", " ", 
+               "the", " ", "models"}], "*)"}], 
+             RowBox[{
+              RowBox[{"dat", "=", "datpoints"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"position", " ", "of", " ", "Cmax"}], "*)"}], 
+              RowBox[{"maxpoint", "=", 
+               RowBox[{"Position", "[", 
+                RowBox[{"dat", ",", 
+                 RowBox[{"Max", "[", "dat", "]"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"endtime", "=", 
+               RowBox[{"Last", "[", "dat", "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"(*", "absorbtion", "*)"}], 
+              RowBox[{"part1", "=", 
+               RowBox[{"dat", "[", 
+                RowBox[{"[", 
+                 RowBox[{"1", ";;", 
+                  RowBox[{"maxpoint", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}]}], "]"}], "]"}]}], 
+              ";", "\[IndentingNewLine]", 
+              RowBox[{"(*", "elimination", "*)"}], 
+              RowBox[{"part2", "=", 
+               RowBox[{"dat", "[", 
+                RowBox[{"[", 
+                 RowBox[{
+                  RowBox[{"maxpoint", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ";;", 
+                  RowBox[{"Length", "[", "dat", "]"}]}], "]"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"*", "modka"}], "=", 
+                 RowBox[{"Fit", "[", 
+                  RowBox[{"part1", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "t", ",", 
+                    RowBox[{"t", "^", "2"}]}], "}"}], ",", "t"}], "]"}]}], 
+                ";"}], "**)"}], 
+              RowBox[{"(*", 
+               RowBox[{
+                RowBox[{"modka", "=", 
+                 RowBox[{"Fit", "[", 
+                  RowBox[{"part1", ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "t"}], "}"}], ",", "t"}], "]"}]}], 
+                ";"}], "*)"}], 
+              RowBox[{"(*", 
+               RowBox[{"using", " ", "straight", " ", "line"}], "*)"}], 
+              "\[IndentingNewLine]", 
+              RowBox[{"Quiet", "[", 
+               RowBox[{
+                RowBox[{"modka", "=", 
+                 RowBox[{"Fit", "[", 
+                  RowBox[{"part1", ",", 
+                   RowBox[{"{", "t", "}"}], ",", "t"}], "]"}]}], ";"}], "]"}],
+               ";", "\[IndentingNewLine]", 
+              RowBox[{"Quiet", "[", 
+               RowBox[{
+                RowBox[{"fitke", "=", 
+                 RowBox[{"FindFit", "[", 
+                  RowBox[{"part2", ",", 
+                   RowBox[{"a", "*", 
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "ke"}], "*", "t"}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"a", ",", "ke"}], "}"}], ",", "t"}], "]"}]}], 
+                ";"}], "]"}], ";", "\[IndentingNewLine]", 
+              RowBox[{"Quiet", "[", 
+               RowBox[{
+                RowBox[{"modke", "=", 
+                 RowBox[{"Function", "[", 
+                  RowBox[{
+                   RowBox[{"{", "t", "}"}], ",", 
+                   RowBox[{"Evaluate", "[", 
+                    RowBox[{
+                    RowBox[{"a", "*", 
+                    RowBox[{"Exp", "[", 
+                    RowBox[{
+                    RowBox[{"-", "ke"}], "*", "t"}], "]"}]}], "/.", "fitke"}],
+                     "]"}]}], "]"}]}], ";"}], "]"}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"output", " ", "equations"}], "*)"}], 
+              "\[IndentingNewLine]", 
+              RowBox[{"fn", "=", 
+               RowBox[{"Piecewise", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"modka", ",", 
+                    RowBox[{"0", "\[LessEqual]", "t", "<", 
+                    RowBox[{"dat", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"maxpoint", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "1"}], "]"}], 
+                    "]"}]}]}], "}"}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{
+                    RowBox[{"modke", "[", "t", "]"}], ",", 
+                    RowBox[{"t", "\[GreaterEqual]", 
+                    RowBox[{"dat", "[", 
+                    RowBox[{"[", 
+                    RowBox[{
+                    RowBox[{"maxpoint", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "1"}], "]"}], 
+                    "]"}]}]}], "}"}]}], "}"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"(*", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", 
+                   RowBox[{"fn", "/.", 
+                    RowBox[{"t", "\[Rule]", "i"}]}]}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "0", ",", 
+                   RowBox[{"Ceiling", "[", 
+                    RowBox[{"endtime", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], 
+               "*)"}], 
+              RowBox[{"j", "=", "0"}], ";"}], "\[IndentingNewLine]", "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"j", "=", "0"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"nd", "=", "1"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"concls", "=", 
+             RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"conc", "=", "0"}], ";", 
+            RowBox[{"(*", 
+             RowBox[{"init", " ", "concentration"}], "*)"}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"For", "[", 
+             RowBox[{
+              RowBox[{"i", "=", "0"}], ",", 
+              RowBox[{"i", "<", 
+               RowBox[{"Ndrug", "*", "everyH"}]}], ",", 
+              RowBox[{"i", "=", 
+               RowBox[{"i", "+", "1"}]}], ",", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"j", "\[NotEqual]", "everyH"}], ",", 
+                 RowBox[{
+                  RowBox[{"conc", "=", 
+                   RowBox[{
+                    RowBox[{"genpoints", "[", 
+                    RowBox[{"xm", ",", "ym", ",", "ke", ",", "x"}], "]"}], "/.", 
+                    RowBox[{"x", "\[Rule]", "j"}]}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"AppendTo", "[", 
+                   RowBox[{"concls", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "conc", ",", 
+                    RowBox[{"HoshenPDEff", "[", 
+                    RowBox[{"conc", ",", "ec50"}], "]"}]}], "}"}]}], "]"}], 
+                  ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"j", "\[Equal]", "everyH"}], "&&", 
+                  RowBox[{"nd", "<", "Ndrug"}]}], ",", 
+                 RowBox[{
+                  RowBox[{"nd", "=", 
+                   RowBox[{"nd", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+                  RowBox[{"conc", "=", 
+                   RowBox[{
+                    RowBox[{"conc", "+", 
+                    RowBox[{"genpoints", "[", 
+                    RowBox[{"xm", ",", "ym", ",", "ke", ",", "x"}], "]"}]}], "/.", 
+                    RowBox[{"x", "\[Rule]", "j"}]}]}], ";", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"AppendTo", "[", 
+                   RowBox[{"concls", ",", 
+                    RowBox[{"{", 
+                    RowBox[{"i", ",", "conc", ",", 
+                    RowBox[{"HoshenPDEff", "[", 
+                    RowBox[{"conc", ",", "ec50"}], "]"}]}], "}"}]}], "]"}], 
+                  ";", "\[IndentingNewLine]", 
+                  RowBox[{"j", "=", "0"}], ";"}]}], "]"}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"(*", 
+                RowBox[{"update", " ", "ndrug"}], "*)"}], 
+               RowBox[{"j", "=", 
+                RowBox[{"j", "+", "1"}]}], ";"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"For", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"i", "=", 
+                RowBox[{"Ndrug", "*", "everyH"}]}], ";", 
+               RowBox[{"j", "=", "everyH"}]}], ",", 
+              RowBox[{"i", "\[LessEqual]", "TIMEMAX"}], ",", 
+              RowBox[{"i", "=", 
+               RowBox[{"i", "+", "1"}]}], ",", 
+              RowBox[{
+               RowBox[{"conc", "=", 
+                RowBox[{
+                 RowBox[{"genpoints", "[", 
+                  RowBox[{"xm", ",", "ym", ",", "ke", ",", "x"}], "]"}], "/.", 
+                 RowBox[{"x", "\[Rule]", "j"}]}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"AppendTo", "[", 
+                RowBox[{"concls", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "conc", ",", 
+                   RowBox[{"HoshenPDEff", "[", 
+                    RowBox[{"conc", ",", "ec50"}], "]"}]}], "}"}]}], "]"}], 
+               ";", "\[IndentingNewLine]", 
+               RowBox[{"j", "=", 
+                RowBox[{"j", "+", "1"}]}], ";"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", "concls"}]}], "]"}]}], ";", "\n", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"DistributeN", "[", 
+          RowBox[{"initN_", ",", "LC_Integer", ",", "mu_", ",", "sigma_"}], 
+          "]"}], ":=", 
+         RowBox[{"(*", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"DistributeN", "[", 
+             RowBox[{"initN", ",", "LifeCycle", ",", "mu", ",", "sigma"}], 
+             "]"}], " ", "distributes", " ", "the", " ", "initial", " ", 
+            "number", " ", "over", " ", "the", " ", "life"}], "-", 
+           RowBox[{"cycle", " ", 
+            RowBox[{"(", "LC", ")"}], " ", "with", " ", "the", " ", "mean", 
+            " ", "mu", " ", "and", " ", "SD", " ", "sigma", " ", 
+            RowBox[{"hours", "."}]}]}], "*)"}], 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"distr", ",", "x"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"distr", "=", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"PDF", "[", 
+                 RowBox[{
+                  RowBox[{"NormalDistribution", "[", 
+                   RowBox[{"mu", ",", "sigma"}], "]"}], ",", "x"}], "]"}], "//",
+                 "N"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"x", ",", "1", ",", "LC"}], "}"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"initN", "/", 
+               RowBox[{"Total", "[", "distr", "]"}]}], ")"}], "*", 
+             "distr"}]}]}], "]"}]}], ";", "\n", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Shiftonehour", "[", 
+          RowBox[{"ls_List", ",", "PMR_Integer"}], "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", "tmp", "}"}], ",", 
+           RowBox[{"(*", 
+            RowBox[{
+            "shift", " ", "the", " ", "list", " ", "of", " ", "number", " ", 
+             "to", " ", "the", " ", "right", " ", "with", " ", "a", " ", 
+             "multiplication", " ", "pmr"}], "*)"}], 
+           RowBox[{
+            RowBox[{"tmp", "=", "ls"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"tmp", "=", 
+             RowBox[{"RotateRight", "[", "tmp", "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"tmp", "=", 
+             RowBox[{"ReplacePart", "[", 
+              RowBox[{"tmp", ",", 
+               RowBox[{"1", "\[Rule]", 
+                RowBox[{
+                 RowBox[{"tmp", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "*", "PMR"}]}]}], "]"}]}], 
+            ";", "\[IndentingNewLine]", "tmp"}]}], "]"}]}], ";", "\n", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"DorCollect", "[", 
+          RowBox[{"dorls_", ",", "doraddls_"}], "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"newdorls", ",", "dorlslength"}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"newdorls", "=", "dorls"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"newdorls", ",", "doraddls"}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"dorlslength", "=", 
+             RowBox[{"Length", "@", "newdorls"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Length", "@", "newdorls"}], ">", "0"}], ",", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"newdorls", "[", 
+                 RowBox[{"[", 
+                  RowBox[{
+                   RowBox[{"1", ";;", 
+                    RowBox[{
+                    RowBox[{"Length", "@", "newdorls"}], "-", "1"}]}], ",", 
+                   RowBox[{"Length", "@", 
+                    RowBox[{"newdorls", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}], "=", 
+                RowBox[{
+                 RowBox[{"newdorls", "[", 
+                  RowBox[{"[", 
+                   RowBox[{
+                    RowBox[{"1", ";;", 
+                    RowBox[{
+                    RowBox[{"Length", "@", "newdorls"}], "-", "1"}]}], ",", 
+                    RowBox[{"Length", "@", 
+                    RowBox[{"newdorls", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}]}], "]"}], "]"}], "+", 
+                 "1"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+            "newdorls"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"HoshenDHAEff", "[", "age_Integer", "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", "fn", "}"}], ",", 
+           RowBox[{
+            RowBox[{"fn", "=", 
+             RowBox[{"Piecewise", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0.", ",", 
+                  RowBox[{"0", "\[LessEqual]", "age", "<", "3"}]}], "}"}], 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{"age", "-", "3."}], ")"}], "/", "8."}], ",", 
+                  RowBox[{
+                  "3", "\[LessEqual]", "age", "\[LessEqual]", "11"}]}], "}"}],
+                 ",", 
+                RowBox[{"{", 
+                 RowBox[{"1.", ",", 
+                  RowBox[{"11", "<", "age", "\[LessEqual]", "32"}]}], "}"}], 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"-", "age"}], "/", "8."}], ")"}], "+", "5."}], 
+                  ",", 
+                  RowBox[{"32", "<", "age", "\[LessEqual]", "40"}]}], "}"}], 
+                ",", 
+                RowBox[{"{", 
+                 RowBox[{"0.", ",", 
+                  RowBox[{"40", "<", "age", "\[LessEqual]", "48"}]}], "}"}]}],
+                "}"}], "]"}]}], ";", "\[IndentingNewLine]", "fn"}]}], "]"}]}],
+         ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{
+          RowBox[{"calculate", " ", "the", " ", "stage"}], "-", 
+          RowBox[{"specific", " ", "time"}], "-", 
+          RowBox[{"dependent", " ", "kill"}], "-", "rate"}], "*)"}], "\n", 
+        RowBox[{
+         RowBox[{"HoshenPDEff", "[", 
+          RowBox[{"conc_", ",", "ec50_"}], "]"}], ":=", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", "pd", "}"}], ",", 
+           RowBox[{
+            RowBox[{"pd", "=", 
+             RowBox[{"conc", "/", 
+              RowBox[{"(", 
+               RowBox[{"conc", "+", "ec50"}], ")"}]}]}], ";", 
+            "\[IndentingNewLine]", "pd"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"CountRing", "[", 
+          RowBox[{"ls_List", ",", "Age_List", ",", "fn_Integer"}], "]"}], ":=", 
+         RowBox[{"(*", 
+          RowBox[{"count", " ", "parasites", " ", "at", " ", "Rings"}], 
+          "*)"}], 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+            "AGEbegin", ",", "AGEend", ",", "tot", ",", "pls", ",", "i"}], 
+            "}"}], ",", 
+           RowBox[{"(*", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"*", "fn"}], "=", 
+              RowBox[{
+              "0", " ", "not", " ", "using", " ", "the", " ", "partition", 
+               " ", "function"}]}], ",", "\[IndentingNewLine]", 
+             RowBox[{"=", 
+              RowBox[{
+               RowBox[{
+               "1", " ", "use", " ", "the", " ", "partition", " ", "function",
+                 " ", 
+                RowBox[{"(", "PRingFunc", ")"}], " ", "Age"}], "=", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"AGEbegin", ",", "AGEend"}], "}"}], " ", "age", " ", 
+                "range", " ", "of", " ", "ring", " ", "parasites"}]}]}]}], 
+            "***)"}], 
+           RowBox[{
+            RowBox[{"AGEbegin", "=", 
+             RowBox[{"Age", "[", 
+              RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"AGEend", "=", 
+             RowBox[{"Age", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"pls", "=", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"PRingFunc", "[", 
+                RowBox[{"i", ",", "AGEbegin", ",", "AGEend"}], "]"}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "1", ",", 
+                 RowBox[{"Length", "@", "ls"}]}], "}"}]}], "]"}]}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"fn", "\[Equal]", "1"}], ",", 
+              RowBox[{
+               RowBox[{"tot", "=", 
+                RowBox[{"ls", ".", "pls"}]}], ";"}], ",", 
+              RowBox[{
+               RowBox[{"tot", "=", 
+                RowBox[{
+                 RowBox[{"ls", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"AGEbegin", ";;", "AGEend"}], "]"}], "]"}], "//", 
+                 "Total"}]}], ";"}]}], "]"}], ";", "\[IndentingNewLine]", 
+            "tot"}]}], "]"}]}], ";", "\n", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"PRingFunc", "[", 
+          RowBox[{"i_Integer", ",", "a1_Integer", ",", "a2_Integer"}], "]"}], 
+         ":=", 
+         RowBox[{"(*", 
+          RowBox[{
+          "inferred", " ", "from", " ", "Fig2", " ", "of", " ", 
+           "\"\<Febrile temperatures induce cytoadherence of \n\tring-stage \
+Plasmodium falciparum-infected erythrocytes\>\"", " ", "by", " ", "Rachanee", 
+           " ", "Udomsangpetch", " ", "et", " ", 
+           RowBox[{"al", ".", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"http", ":"}], "//", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"www", ".", "pnas", ".", "org"}], "/", "content"}], 
+                 "/", "99"}], "/", "18"}], "/", "11825"}]}], ")"}]}]}], 
+          "*)"}], 
+         RowBox[{"Piecewise", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"1", ",", 
+              RowBox[{"i", "<", "a1"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Exp", "[", 
+               RowBox[{
+                RowBox[{"Log", "[", "0.5", "]"}], "*", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{"i", "-", "a1"}], ")"}], "/", 
+                 RowBox[{"(", 
+                  RowBox[{"a2", "-", "a1"}], ")"}]}]}], "]"}], ",", 
+              RowBox[{"i", "\[GreaterEqual]", "a1"}]}], "}"}]}], "}"}], 
+          "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "}"}]}]}], "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.5121845254506907`*^9, 3.5121845254506907`*^9}, {
+   3.5121845935101414`*^9, 3.51218462457125*^9}, {3.512184655772977*^9, 
+   3.512184656819805*^9}, {3.512184707426913*^9, 3.512184708005012*^9}, {
+   3.5121847408316665`*^9, 3.5121848191719065`*^9}, {3.512184884622099*^9, 
+   3.5121848927623596`*^9}, {3.512187008876703*^9, 3.5121870288133097`*^9}, {
+   3.5121883919473934`*^9, 3.512188399650272*^9}, {3.5121884307274027`*^9, 
+   3.5121885085996094`*^9}, {3.5121885589414263`*^9, 3.512188637016553*^9}, {
+   3.512188865054671*^9, 3.5121896737599106`*^9}, {3.5121897493976307`*^9, 
+   3.5121898411284833`*^9}, {3.512189946765052*^9, 3.5121900200747366`*^9}, {
+   3.512190469651222*^9, 3.5121905068216696`*^9}, {3.5121905399922705`*^9, 
+   3.5121906268483105`*^9}, {3.512190668159224*^9, 3.512190669518547*^9}, {
+   3.5121907078295755`*^9, 3.512190718235426*^9}, {3.512190755077761*^9, 
+   3.5121908370746126`*^9}, {3.5121908805260687`*^9, 3.512190909728072*^9}, {
+   3.5121909687726803`*^9, 3.512191052738206*^9}, {3.5121910856431923`*^9, 
+   3.5121910861900463`*^9}, {3.5121911294540095`*^9, 3.512191137984932*^9}, {
+   3.512191188951725*^9, 3.5121912123102026`*^9}, {3.5121917787884493`*^9, 
+   3.512191779179059*^9}, 3.512191911095868*^9, {3.51219285566897*^9, 
+   3.5121928779806137`*^9}, {3.5121929149948173`*^9, 3.512192968102153*^9}, {
+   3.512193001882106*^9, 3.5121931620790787`*^9}, {3.512193199280775*^9, 
+   3.512193230951434*^9}, {3.512193387507922*^9, 3.512193406167162*^9}, {
+   3.512193510983487*^9, 3.5121935790586195`*^9}, {3.5121936228636236`*^9, 
+   3.5121936270831566`*^9}, {3.5121936614020247`*^9, 3.51219377936384*^9}, {
+   3.512193908071907*^9, 3.512193924103773*^9}, {3.512194029465411*^9, 
+   3.5121940341997557`*^9}, {3.512194089636901*^9, 3.512194102339945*^9}, 
+   3.5121941724176216`*^9, {3.5121942946979923`*^9, 3.5121943408530607`*^9}, {
+   3.512194379820813*^9, 3.512194383351973*^9}, {3.512194419054184*^9, 
+   3.512194420757265*^9}, 3.512194841587017*^9, {3.512194876616922*^9, 
+   3.51219487746064*^9}, {3.512194970253951*^9, 3.512194970738308*^9}, {
+   3.512195023283165*^9, 3.5121951330289507`*^9}, {3.512195192120431*^9, 
+   3.51219530802223*^9}, {3.5121953817537737`*^9, 3.5121954367672863`*^9}, {
+   3.5121954741721*^9, 3.5121954980774317`*^9}, {3.5121955928862915`*^9, 
+   3.5121955938081307`*^9}, {3.5227289442025356`*^9, 3.522728956546048*^9}, {
+   3.522729028200923*^9, 3.5227291405737653`*^9}, {3.537156422254347*^9, 
+   3.5371564636444416`*^9}, {3.537156526270209*^9, 3.5371565692090826`*^9}, {
+   3.537156742683384*^9, 3.5371567902630315`*^9}, {3.5371573190741053`*^9, 
+   3.537157320495971*^9}, {3.5866503543429804`*^9, 3.586650441391879*^9}, {
+   3.5866505538305244`*^9, 3.58665067750891*^9}, {3.5866507413449287`*^9, 
+   3.5866508113586264`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`dorfrac$$ = 0.02, $CellContext`dortime$$ = 
+    7, $CellContext`ec50$$ = 50., $CellContext`everyH$$ = 
+    24, $CellContext`initN$$ = 10000., $CellContext`ke$$ = 
+    0.5, $CellContext`mu$$ = 16, $CellContext`Ndrug$$ = 
+    7, $CellContext`PMR$$ = 5, $CellContext`runMax$$ = 
+    80, $CellContext`sigma$$ = 5, $CellContext`xm$$ = 2, $CellContext`ym$$ = 
+    1000, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[
+       Style["Mahidol-Oxford Tropical Medicine Research Unit", Bold]], 
+      Manipulate`Dump`ThisIsNotAControl}, {
+      Hold["M. B. Hoshen et al. Parasitology (2000) 121, 237-246"], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`xm$$], 2, "time at Max Concentration(hrs)"}, 1, 
+      20}, {{
+       Hold[$CellContext`ym$$], 1000, "Max Concentration(ng/ml)"}, 0.5, 
+      2000.}, {{
+       Hold[$CellContext`ke$$], 0.5, "Decay rate(/hrs)"}, 0.001, 10}, {{
+       Hold[$CellContext`initN$$], 10000., 
+       "initial parasitaemia (parasite/\[Mu]l)"}, 10., 1.*^6}, {{
+       Hold[$CellContext`PMR$$], 5, "parasite multiplication rate"}, 1, 30, 
+      1}, {{
+       Hold[$CellContext`mu$$], 16, "mean age of parasites"}, 1, 48, 1}, {{
+       Hold[$CellContext`sigma$$], 5, "SD of age of parasites"}, 1, 48, 1}, {{
+       Hold[$CellContext`everyH$$], 24, "drug period (hrs)"}, 1, 48, 1}, {{
+       Hold[$CellContext`Ndrug$$], 7, "number of drug"}, 1, 14, 1}, {{
+       Hold[$CellContext`ec50$$], 50., "EC50(ng/ml)"}, 0.1, 1000}, {{
+       Hold[$CellContext`runMax$$], 80, "max simulation time(hrs)"}, 10, 200, 
+      1}, {{
+       Hold[$CellContext`dorfrac$$], 0.02, "Dormancy Fraction"}, 0., 0.09, 
+      0.0001}, {{
+       Hold[$CellContext`dortime$$], 7, "Dormancy period(hrs)"}, 1, 200, 1}}, 
+    Typeset`size$$ = {348., {214., 218.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    False, $CellContext`xm$10717$$ = 0, $CellContext`ym$10718$$ = 
+    0, $CellContext`ke$10719$$ = 0, $CellContext`initN$10720$$ = 
+    0, $CellContext`PMR$10721$$ = 0, $CellContext`mu$10722$$ = 
+    0, $CellContext`sigma$10723$$ = 0, $CellContext`everyH$10724$$ = 
+    0, $CellContext`Ndrug$10725$$ = 0, $CellContext`ec50$10726$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`dorfrac$$ = 0.02, $CellContext`dortime$$ = 
+        7, $CellContext`ec50$$ = 50., $CellContext`everyH$$ = 
+        24, $CellContext`initN$$ = 10000., $CellContext`ke$$ = 
+        0.5, $CellContext`mu$$ = 16, $CellContext`Ndrug$$ = 
+        7, $CellContext`PMR$$ = 5, $CellContext`runMax$$ = 
+        80, $CellContext`sigma$$ = 5, $CellContext`xm$$ = 
+        2, $CellContext`ym$$ = 1000}, "ControllerVariables" :> {
+        Hold[$CellContext`xm$$, $CellContext`xm$10717$$, 0], 
+        Hold[$CellContext`ym$$, $CellContext`ym$10718$$, 0], 
+        Hold[$CellContext`ke$$, $CellContext`ke$10719$$, 0], 
+        Hold[$CellContext`initN$$, $CellContext`initN$10720$$, 0], 
+        Hold[$CellContext`PMR$$, $CellContext`PMR$10721$$, 0], 
+        Hold[$CellContext`mu$$, $CellContext`mu$10722$$, 0], 
+        Hold[$CellContext`sigma$$, $CellContext`sigma$10723$$, 0], 
+        Hold[$CellContext`everyH$$, $CellContext`everyH$10724$$, 0], 
+        Hold[$CellContext`Ndrug$$, $CellContext`Ndrug$10725$$, 0], 
+        Hold[$CellContext`ec50$$, $CellContext`ec50$10726$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`points = Table[{$CellContext`t, 
+           $CellContext`genpoints[$CellContext`xm$$, $CellContext`ym$$, \
+$CellContext`ke$$, $CellContext`t]}, {$CellContext`t, 0, 20, 0.1}]; 
+       GraphicsColumn[{
+          
+          ListPlot[$CellContext`points, Joined -> True, PlotRange -> All, 
+           Frame -> {True, True, False, False}, 
+           FrameLabel -> {"time(hrs)", "DHA concentration(ng/ml)"}, 
+           PlotStyle -> {Black, Thick}, GridLines -> Automatic, 
+           GridLinesStyle -> Directive[LightGray, Dashed], LabelStyle -> 
+           Directive[Medium, FontFamily -> "Helvetica"]], 
+          ListPlot[
+           $CellContext`Hoshen[$CellContext`initN$$, $CellContext`PMR$$, \
+$CellContext`mu$$, $CellContext`sigma$$, 
+            48, {$CellContext`xm$$, $CellContext`ym$$, $CellContext`ke$$}, \
+$CellContext`everyH$$, $CellContext`Ndrug$$, $CellContext`ec50$$, \
+$CellContext`runMax$$, $CellContext`dorfrac$$, $CellContext`dortime$$, 2], 
+           Joined -> True, Frame -> {True, True, False, False}, 
+           FrameLabel -> {"time(hrs)", "log10 parasitaemia(/\[Mu]l)"}, 
+           PlotStyle -> {Black, Thick}, GridLines -> Automatic, 
+           GridLinesStyle -> Directive[LightGray, Dashed], LabelStyle -> 
+           Directive[Medium, FontFamily -> "Helvetica"]]}, Frame -> All]), 
+      "Specifications" :> {
+        Style["Mahidol-Oxford Tropical Medicine Research Unit", Bold], 
+        Delimiter, "M. B. Hoshen et al. Parasitology (2000) 121, 237-246", 
+        Delimiter, {{$CellContext`xm$$, 2, "time at Max Concentration(hrs)"}, 
+         1, 20, Appearance -> 
+         "Labeled"}, {{$CellContext`ym$$, 1000, "Max Concentration(ng/ml)"}, 
+         0.5, 2000., Appearance -> 
+         "Labeled"}, {{$CellContext`ke$$, 0.5, "Decay rate(/hrs)"}, 0.001, 10,
+          Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`initN$$, 10000., 
+          "initial parasitaemia (parasite/\[Mu]l)"}, 10., 1.*^6, Appearance -> 
+         "Labeled"}, {{$CellContext`PMR$$, 5, "parasite multiplication rate"},
+          1, 30, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`mu$$, 16, "mean age of parasites"}, 1, 48,
+          1, Appearance -> 
+         "Labeled"}, {{$CellContext`sigma$$, 5, "SD of age of parasites"}, 1, 
+         48, 1, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`everyH$$, 24, "drug period (hrs)"}, 1, 48, 
+         1, Appearance -> 
+         "Labeled"}, {{$CellContext`Ndrug$$, 7, "number of drug"}, 1, 14, 1, 
+         Appearance -> "Labeled"}, {{$CellContext`ec50$$, 50., "EC50(ng/ml)"},
+          0.1, 1000, Appearance -> 
+         "Labeled"}, {{$CellContext`runMax$$, 80, "max simulation time(hrs)"},
+          10, 200, 1, Appearance -> "Labeled"}, 
+        Delimiter, {{$CellContext`dorfrac$$, 0.02, "Dormancy Fraction"}, 0., 
+         0.09, 0.0001, Appearance -> 
+         "Labeled"}, {{$CellContext`dortime$$, 7, "Dormancy period(hrs)"}, 1, 
+         200, 1, Appearance -> "Labeled"}}, 
+      "Options" :> {ContinuousAction -> False, ControlPlacement -> Right}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{830., {252., 257.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`Hoshen[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`PMR, 
+           Blank[Integer]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]], 
+          Pattern[$CellContext`hours, 
+           Blank[Integer]], 
+          Pattern[$CellContext`concdat, 
+           Blank[List]], 
+          Pattern[$CellContext`everyH, 
+           Blank[Integer]], 
+          Pattern[$CellContext`Ndrug, 
+           Blank[Integer]], 
+          Pattern[$CellContext`ec50, 
+           Blank[]], 
+          Pattern[$CellContext`runMax, 
+           Blank[Integer]], 
+          Pattern[$CellContext`dorfrac, 
+           Blank[]], 
+          Pattern[$CellContext`dortime, 
+           Blank[]], 
+          Pattern[$CellContext`outfile, 
+           Blank[]]] := 
+        Module[{$CellContext`runs, $CellContext`concls, $CellContext`i, \
+$CellContext`j, $CellContext`lst, $CellContext`time, $CellContext`output, \
+$CellContext`dorls, $CellContext`dorperd, $CellContext`xm, $CellContext`ym, \
+$CellContext`ke}, $CellContext`runs = 
+           True; $CellContext`time = $CellContext`runMax; \
+$CellContext`dorperd = 
+           0; $CellContext`dorls = {}; $CellContext`output = {}; \
+$CellContext`xm = Part[$CellContext`concdat, 1]; $CellContext`ym = 
+           Part[$CellContext`concdat, 2]; $CellContext`ke = 
+           Part[$CellContext`concdat, 
+             3]; $CellContext`concls = $CellContext`ConcMod2[$CellContext`xm, \
+$CellContext`ym, $CellContext`ke, $CellContext`everyH, $CellContext`Ndrug, \
+$CellContext`ec50]; $CellContext`lst = \
+$CellContext`DistributeN[$CellContext`initN, $CellContext`hours, \
+$CellContext`mu, $CellContext`sigma]; 
+          AppendTo[$CellContext`output, $CellContext`lst]; $CellContext`i = 0; 
+          While[
+            
+            And[$CellContext`runs == 
+             True, $CellContext`i < $CellContext`time], $CellContext`i = \
+$CellContext`i + 
+              1; $CellContext`lst = \
+$CellContext`Shiftonehour[$CellContext`lst, $CellContext`PMR]; \
+$CellContext`dorls = $CellContext`DorCollect[$CellContext`dorls, \
+$CellContext`dorfrac Join[$CellContext`lst, {0}]]; $CellContext`lst = (
+               1. - $CellContext`dorfrac) $CellContext`lst; 
+            If[Part[$CellContext`dorls, 1, 
+                Length[
+                 Part[$CellContext`dorls, 1]]] == Round[
+                RandomReal[
+                 
+                 NormalDistribution[$CellContext`dortime, 
+                  2]]], $CellContext`lst = $CellContext`lst + 
+                Part[$CellContext`dorls, 1, 
+                  Span[1, Length[
+                    Part[$CellContext`dorls, 1]] - 1]]; $CellContext`dorls = 
+               Drop[$CellContext`dorls, 1]; Null]; 
+            For[$CellContext`j = 1, $CellContext`j <= 
+              Length[$CellContext`lst], $CellContext`j = $CellContext`j + 
+               1, $CellContext`lst = 
+               ReplacePart[$CellContext`lst, $CellContext`j -> (
+                   1. - $CellContext`HoshenDHAEff[$CellContext`j] 
+                   Part[$CellContext`concls, $CellContext`i, 3]) 
+                  Part[$CellContext`lst, $CellContext`j]]; Null]; 
+            AppendTo[$CellContext`output, $CellContext`lst]; Null]; 
+          If[$CellContext`outfile == 2, 
+            Table[{$CellContext`i - 1, 
+              Log10[
+               $CellContext`CountRing[
+                Part[$CellContext`output, $CellContext`i], {1, 24}, 
+                0]]}, {$CellContext`i, 1, 
+              Length[$CellContext`output]}]]]; $CellContext`genpoints[
+          Pattern[$CellContext`xm, 
+           Blank[]], 
+          Pattern[$CellContext`ym, 
+           Blank[]], 
+          Pattern[$CellContext`ke, 
+           Blank[]], 
+          Pattern[$CellContext`x, 
+           Blank[]]] := 
+        Piecewise[{{$CellContext`ym - ($CellContext`ym/$CellContext`xm) \
+($CellContext`xm - $CellContext`x), $CellContext`x <= $CellContext`xm}, \
+{$CellContext`ym 
+            Exp[(-$CellContext`ke) ($CellContext`x - $CellContext`xm)], \
+$CellContext`x > $CellContext`xm}}]; $CellContext`ConcMod2[
+          Pattern[$CellContext`xm, 
+           Blank[]], 
+          Pattern[$CellContext`ym, 
+           Blank[]], 
+          Pattern[$CellContext`ke, 
+           Blank[]], 
+          Pattern[$CellContext`everyH, 
+           Blank[Integer]], 
+          Pattern[$CellContext`Ndrug, 
+           Blank[Integer]], 
+          Pattern[$CellContext`ec50, 
+           Blank[Real]]] := 
+        Module[{$CellContext`i, $CellContext`j, $CellContext`nd, \
+$CellContext`dat, $CellContext`maxpoint, $CellContext`part1, \
+$CellContext`part2, $CellContext`fitke, $CellContext`modka, $CellContext`x, \
+$CellContext`modke, $CellContext`fn, $CellContext`endtime, $CellContext`conc, \
+$CellContext`concls, $CellContext`TIMEMAX}, $CellContext`TIMEMAX = 
+           1000; $CellContext`j = 0; $CellContext`nd = 
+           1; $CellContext`concls = {}; $CellContext`conc = 0; 
+          For[$CellContext`i = 
+            0, $CellContext`i < $CellContext`Ndrug $CellContext`everyH, \
+$CellContext`i = $CellContext`i + 1, 
+            If[$CellContext`j != $CellContext`everyH, $CellContext`conc = 
+               ReplaceAll[
+                 $CellContext`genpoints[$CellContext`xm, $CellContext`ym, \
+$CellContext`ke, $CellContext`x], $CellContext`x -> $CellContext`j]; 
+              AppendTo[$CellContext`concls, {$CellContext`i, \
+$CellContext`conc, 
+                 $CellContext`HoshenPDEff[$CellContext`conc, \
+$CellContext`ec50]}]; Null]; If[
+              
+              And[$CellContext`j == $CellContext`everyH, $CellContext`nd < \
+$CellContext`Ndrug], $CellContext`nd = $CellContext`nd + 1; $CellContext`conc = 
+               ReplaceAll[$CellContext`conc + \
+$CellContext`genpoints[$CellContext`xm, $CellContext`ym, $CellContext`ke, \
+$CellContext`x], $CellContext`x -> $CellContext`j]; 
+              AppendTo[$CellContext`concls, {$CellContext`i, \
+$CellContext`conc, 
+                 $CellContext`HoshenPDEff[$CellContext`conc, \
+$CellContext`ec50]}]; $CellContext`j = 0; 
+              Null]; $CellContext`j = $CellContext`j + 1; Null]; 
+          For[$CellContext`i = $CellContext`Ndrug $CellContext`everyH; \
+$CellContext`j = $CellContext`everyH, $CellContext`i <= $CellContext`TIMEMAX, \
+$CellContext`i = $CellContext`i + 1, $CellContext`conc = ReplaceAll[
+               $CellContext`genpoints[$CellContext`xm, $CellContext`ym, \
+$CellContext`ke, $CellContext`x], $CellContext`x -> $CellContext`j]; 
+            AppendTo[$CellContext`concls, {$CellContext`i, $CellContext`conc, 
+               $CellContext`HoshenPDEff[$CellContext`conc, \
+$CellContext`ec50]}]; $CellContext`j = $CellContext`j + 1; 
+            Null]; $CellContext`concls]; $CellContext`DistributeN[
+          Pattern[$CellContext`initN, 
+           Blank[]], 
+          Pattern[$CellContext`LC, 
+           Blank[Integer]], 
+          Pattern[$CellContext`mu, 
+           Blank[]], 
+          Pattern[$CellContext`sigma, 
+           Blank[]]] := 
+        Module[{$CellContext`distr, $CellContext`x}, $CellContext`distr = 
+           Table[
+             N[
+              PDF[
+               
+               NormalDistribution[$CellContext`mu, $CellContext`sigma], \
+$CellContext`x]], {$CellContext`x, 1, $CellContext`LC}]; ($CellContext`initN/
+            
+            Total[$CellContext`distr]) $CellContext`distr]; \
+$CellContext`Shiftonehour[
+          Pattern[$CellContext`ls, 
+           Blank[List]], 
+          Pattern[$CellContext`PMR, 
+           Blank[Integer]]] := 
+        Module[{$CellContext`tmp}, $CellContext`tmp = $CellContext`ls; \
+$CellContext`tmp = RotateRight[$CellContext`tmp]; $CellContext`tmp = 
+           ReplacePart[$CellContext`tmp, 1 -> 
+             Part[$CellContext`tmp, 
+                1] $CellContext`PMR]; $CellContext`tmp]; \
+$CellContext`DorCollect[
+          Pattern[$CellContext`dorls, 
+           Blank[]], 
+          Pattern[$CellContext`doraddls, 
+           Blank[]]] := 
+        Module[{$CellContext`newdorls, $CellContext`dorlslength}, \
+$CellContext`newdorls = $CellContext`dorls; 
+          AppendTo[$CellContext`newdorls, $CellContext`doraddls]; \
+$CellContext`dorlslength = Length[$CellContext`newdorls]; 
+          If[Length[$CellContext`newdorls] > 0, Part[$CellContext`newdorls, 
+               Span[1, Length[$CellContext`newdorls] - 1], 
+               Length[
+                Part[$CellContext`newdorls, 1]]] = Part[$CellContext`newdorls, 
+                Span[1, Length[$CellContext`newdorls] - 1], 
+                Length[
+                 Part[$CellContext`newdorls, 1]]] + 1; 
+            Null]; $CellContext`newdorls]; $CellContext`HoshenDHAEff[
+          Pattern[$CellContext`age, 
+           Blank[Integer]]] := 
+        Module[{$CellContext`fn}, $CellContext`fn = Piecewise[{{0., 
+               Inequality[
+               0, LessEqual, $CellContext`age, Less, 3]}, {($CellContext`age - 
+                3.)/8., 3 <= $CellContext`age <= 11}, {1., 
+               Inequality[
+               11, Less, $CellContext`age, LessEqual, 
+                32]}, {(-$CellContext`age)/8. + 5., 
+               Inequality[32, Less, $CellContext`age, LessEqual, 40]}, {0., 
+               Inequality[
+               40, Less, $CellContext`age, LessEqual, 
+                48]}}]; $CellContext`fn]; $CellContext`HoshenPDEff[
+          Pattern[$CellContext`conc, 
+           Blank[]], 
+          Pattern[$CellContext`ec50, 
+           Blank[]]] := 
+        Module[{$CellContext`pd}, $CellContext`pd = \
+$CellContext`conc/($CellContext`conc + $CellContext`ec50); $CellContext`pd]; \
+$CellContext`CountRing[
+          Pattern[$CellContext`ls, 
+           Blank[List]], 
+          Pattern[$CellContext`Age, 
+           Blank[List]], 
+          Pattern[$CellContext`fn, 
+           Blank[Integer]]] := 
+        Module[{$CellContext`AGEbegin, $CellContext`AGEend, $CellContext`tot, \
+$CellContext`pls, $CellContext`i}, $CellContext`AGEbegin = 
+           Part[$CellContext`Age, 1]; $CellContext`AGEend = 
+           Part[$CellContext`Age, 2]; $CellContext`pls = Table[
+             $CellContext`PRingFunc[$CellContext`i, $CellContext`AGEbegin, \
+$CellContext`AGEend], {$CellContext`i, 1, 
+              Length[$CellContext`ls]}]; 
+          If[$CellContext`fn == 
+            1, $CellContext`tot = Dot[$CellContext`ls, $CellContext`pls]; 
+            Null, $CellContext`tot = Total[
+               Part[$CellContext`ls, 
+                Span[$CellContext`AGEbegin, $CellContext`AGEend]]]; 
+            Null]; $CellContext`tot]; $CellContext`PRingFunc[
+          Pattern[$CellContext`i, 
+           Blank[Integer]], 
+          Pattern[$CellContext`a1, 
+           Blank[Integer]], 
+          Pattern[$CellContext`a2, 
+           Blank[Integer]]] := 
+        Piecewise[{{1, $CellContext`i < $CellContext`a1}, {
+            Exp[
+            Log[0.5] (($CellContext`i - $CellContext`a1)/($CellContext`a2 - \
+$CellContext`a1))], $CellContext`i >= $CellContext`a1}}]; Null}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.5371568193099384`*^9, 3.5371573492926617`*^9, 3.586650443185902*^9, 
+   3.586650622487005*^9, 3.586650663655933*^9, {3.586650769784094*^9, 
+   3.5866508136674557`*^9}, {3.586650848752306*^9, 3.586650882994745*^9}, 
+   3.5866510182796793`*^9}]
+}, Open  ]]
+},
+WindowSize->{1114, 670},
+WindowMargins->{{Automatic, 360}, {Automatic, 114}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 1104, 26, 112, "Input"],
+Cell[CellGroupData[{
+Cell[1686, 50, 50451, 1150, 3412, "Input"],
+Cell[52140, 1202, 18678, 369, 558, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
