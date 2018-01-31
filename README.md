@@ -15,3 +15,6 @@
 
 5. Hoshen, M.B., Na - Bangchang, K., Stein, W.D., & Ginsburg, H.(2000) Mathematical modelling of the chemotherapy of Plasmodium falciparum malaria with artesunate : postulation of' dormancy', a partial cytostatic effect of the drug, and its implication for treatment regimens Parasitology 121 (Pt 3), 237 - 246 
 ![](http://www.sakngoi.com/wp-content/uploads/hoshen.gif)
+
+6. Saralamba, S., et al. (2011). "Intrahost modeling of artemisinin resistance in Plasmodium falciparum." Proceedings of the National Academy of Sciences of the United States of America 108(1): 397-402.
+![](http://www.sakngoi.com/wp-content/uploads/saralamba.gif)
