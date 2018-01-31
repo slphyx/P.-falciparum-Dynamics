@@ -10,3 +10,8 @@
 ![](http://www.sakngoi.com/wp-content/uploads/KDNM.gif)
 ![](http://www.sakngoi.com/wp-content/uploads/KDNM2.gif)
 
+4. Simpson, J. A., et al. (2002). "Population dynamics of untreated Plasmodium falciparum malaria within the adult human host during the expansion phase of the infection." Parasitology 124(Pt 3): 247-263.
+![](http://www.sakngoi.com/wp-content/uploads/julie.gif)
+
+5. Hoshen, M.B., Na - Bangchang, K., Stein, W.D., & Ginsburg, H.(2000) Mathematical modelling of the chemotherapy of Plasmodium falciparum malaria with artesunate : postulation of' dormancy', a partial cytostatic effect of the drug, and its implication for treatment regimens Parasitology 121 (Pt 3), 237 - 246 
+![](http://www.sakngoi.com/wp-content/uploads/hoshen.gif)
