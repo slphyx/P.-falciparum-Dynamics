@@ -1,6 +1,6 @@
 # A collection of the _P. falciparum_ Dynamic models
 
-A collection of the dynamic models of _P. falciparum_ parasites in human before and during treatment with antimalarial drugs. These models were written in Wolfram language. The files in this repo can be open by Mathematica(http://www.wolfram.com/mathematica) or CDF player(http://www.wolfram.com/cdf-player/).
+A collection of the dynamic models of _P. falciparum_ parasites in human before and during treatment with antimalarial drugs. These models were written in Wolfram language. The files in this repo can be opened by Mathematica(http://www.wolfram.com/mathematica) or CDF player(http://www.wolfram.com/cdf-player/).
 
 1. White, N.J., Chapman, D., & Watt, G.(1992) The effects of multiplication and synchronicity on the vascular distribution of parasites in falciparum malaria Transactions of the Royal Society of Tropical Medicine and Hygiene 86, 590 - 597 
 ![](http://www.sakngoi.com/wp-content/uploads/2017/03/NJW-data.gif)
